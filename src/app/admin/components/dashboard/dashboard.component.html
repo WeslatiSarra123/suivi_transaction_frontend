@@ -1,0 +1,37 @@
+<div class="container ooredoo-theme">
+    <div class="header">
+        <button class="btn btn-md btn-outline-primary add-agent-btn" [routerLink]="['/addAgent']">
+            <i class="fa fa-user"></i> New Back Office Agent
+        </button>
+    </div>
+    
+    <table class="table table-bordered table-striped agent-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td><span>{{user.id}}</span></td>
+                <td><span>{{user.name}}</span></td>
+                <td><span>{{user.email}}</span></td>
+                <td><span>{{user.phoneNumber}}</span></td>
+                <td>
+                    <button class="btn btn-sm btn-info">
+                      <i class="fa fa-search"></i>Details</button>
+                    <button class="btn btn-sm btn-warning">
+                      <i class="fa fa-edit"></i>Edit</button>
+                    <button class="btn btn-sm btn-danger">
+                      <i class="fa fa-remove"></i>Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+

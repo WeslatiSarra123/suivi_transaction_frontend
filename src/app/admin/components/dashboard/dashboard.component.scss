@@ -1,0 +1,132 @@
+/* Style général pour le bouton */
+.btn {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    border: 2px solid transparent;
+}
+
+/* Taille moyenne du bouton */
+.btn-md {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+/* Bouton avec bordure et texte colorés */
+.btn-outline-primary {
+    color: #007bff;
+    background-color: transparent;
+    border-color: #007bff;
+}
+
+/* Effet au survol pour le bouton outline */
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+/* Spécifique à add-agent-btn */
+.add-agent-btn {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style pour l'icône */
+.add-agent-btn i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+/* Survol du bouton spécifique */
+.add-agent-btn:hover {
+    background-color: #0056b3;
+    color: #fff;
+    border-color: #0056b3;
+}
+
+/* Réduire les marges et l'espacement sur petit écran */
+@media (max-width: 768px) {
+    .btn-md {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+
+/* Style global pour la table */
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Bordures autour de chaque cellule */
+.table-bordered th, .table-bordered td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/* Style des en-têtes de la table */
+.table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
+}
+
+/* Lignes alternées avec couleur */
+.table-striped tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Style spécifique pour la classe "agent-table" */
+.agent-table {
+    background-color: #fff;
+}
+
+/* Stylisation au survol des lignes */
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.3s;
+}
+
+/* Style des cellules de données */
+.table td {
+    text-align: left;
+    padding: 10px;
+}
+
+/* Aligner les éléments dans les cellules */
+.table td span {
+    display: block;
+}
+
+/* Résolution pour petit écran (responsive) */
+@media (max-width: 768px) {
+    .table {
+        font-size: 14px;
+    }
+
+    .table th, .table td {
+        padding: 6px;
+    }
+}
+table .btn{
+    margin: 2px;
+  }
+
+
+

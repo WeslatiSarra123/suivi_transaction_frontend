@@ -1,0 +1,43 @@
+
+<div *ngIf="!isUserLoggedIn && !isAdminLoggedIn && !isAgentLoggedIn">
+  <mat-toolbar class="custom-toolbar">
+    <span class="navbar-brand">Suivi Transaction</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/signup" routerLinkActive="active">Register</button>
+    <button mat-button routerLink="/login" routerLinkActive="active">Login</button>
+  </mat-toolbar>
+</div>
+
+<div *ngIf="isUserLoggedIn">
+  <mat-toolbar class="custom-toolbar">
+    <span class="navbar-brand">Suivi Transaction</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/user/dashboard" routerLinkActive="active">User Dashboard</button>
+    <button mat-button routerLink="/user/ChatBoot" routerLinkActive="active">ChatBoot</button>
+    <button mat-button routerLinkActive="active" (click)="logout()">LogOut</button>
+  </mat-toolbar>
+</div>
+
+<div *ngIf="isAdminLoggedIn">
+  <mat-toolbar class="custom-toolbar">
+    <span class="navbar-brand">Suivi Transaction</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/admin/dashboard" routerLinkActive="active">Admin Dashboard</button>
+    <button mat-button routerLink="/admin/AddUser" routerLinkActive="active">Add User</button>
+    <button mat-button routerLinkActive="active" (click)="logout()">LogOut</button>
+  </mat-toolbar>
+</div>
+
+<div *ngIf="isAgentLoggedIn">
+  <mat-toolbar class="custom-toolbar">
+    <span class="navbar-brand">Suivi Transaction</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/agent/dashboard" routerLinkActive="active">Agent Dashboard</button>
+    <button mat-button routerLink="/admin/transaction" routerLinkActive="active">Transaction Search</button>
+    <button mat-button routerLinkActive="active" (click)="logout()">LogOut</button>
+  </mat-toolbar>
+</div>
+
+
+<router-outlet></router-outlet>
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home - Suivi Transaction Ooredoo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #e63946;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #6d6875;
+        }
+        .video-container {
+            max-width: 640px;
+            margin: 0 auto;
+            border: 2px solid #e63946;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        footer {
+            text-align: center;
+            padding: 5px 0; /* Diminuer l'espacement vertical */
+            color: #6d6875;
+            font-size: 0.8rem; /* Réduire la taille de la police */
+            background-color: #f4f4f9;
+            border-top: 1px solid #e63946;
+        }
+        footer a {
+            color: #e63946;
+            text-decoration: none;
+            margin: 0 5px; /* Réduire l'espacement horizontal entre les liens */
+            font-size: 0.8rem; /* Ajuster la taille de la police des liens */
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        /* Ensure footer sticks to the bottom */
+        body, #content {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        #content {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Our Application</h1>
+        <p>Your trusted tool for tracking Ooredoo's transactions efficiently.</p>
+    </header>
+
+    <div class="video-container">
+        <video controls>
+            <source src="assets/pub.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Ooredoo. All rights reserved. | <a href="/terms">Terms & Conditions</a> | <a href="/privacy">Privacy Policy</a></p>
+    </footer>
+
+</body>
+</html>
+
+
