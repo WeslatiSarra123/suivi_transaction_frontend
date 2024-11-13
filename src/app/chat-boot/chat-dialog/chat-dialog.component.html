@@ -1,0 +1,15 @@
+<div class="chat-container">
+    <div class="messages-container">
+      <ng-container *ngFor="let message of messages | async">
+        <div class="message" [ngClass]="{'user-message': message.sender === 'user', 'bot-message': message.sender === 'bot'}">
+          <span class="user-icon" *ngIf="message.sender === 'user'">🧑</span>
+          <span class="bot-icon" *ngIf="message.sender === 'bot'">🤖</span>
+          <div class="message-bubble">{{message.content}}</div>
+        </div>
+      </ng-container>
+    </div>
+    
+    <div class="input-container">
+      <input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" placeholder="Type your message here..." />
+    </div>
+  </div>

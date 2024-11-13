@@ -1,5 +1,8 @@
+.header {
+    margin-bottom: 20px;  /* Ajouter un espace sous la barre */
+}
 /* Style général pour le bouton */
-.btn {
+.ooredoo-button {
     font-size: 16px;
     font-weight: 500;
     padding: 10px 20px;
@@ -9,15 +12,25 @@
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     border: 2px solid transparent;
+    background-color: #007bff;
+    color: #fff;
+    margin-top: 20px; 
 }
 
 /* Taille moyenne du bouton */
-.btn-md {
-    padding: 8px 16px;
-    font-size: 14px;
+.ooredoo-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
-/* Bouton avec bordure et texte colorés */
+.ooredoo-button i {
+    margin-right: 8px; /* Espace entre l'icône et le texte */
+}
+
+/* Bouton avec bordure et texte colorés (utilisé dans la table) */
 .btn-outline-primary {
     color: #007bff;
     background-color: transparent;
@@ -31,7 +44,36 @@
     border-color: #007bff;
 }
 
-/* Spécifique à add-agent-btn */
+/* Boutons dans la table (btn-sm, btn-warning, btn-danger) */
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #212529;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+    color: #fff;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+/* Style pour l'icône dans la table */
+.btn i {
+    margin-right: 5px; /* Ajustement de l'espace autour de l'icône */
+}
+
+/* Spécifique à add-agent-btn (ajout d'un nouvel agent) */
 .add-agent-btn {
     font-size: 16px;
     font-weight: bold;
@@ -39,12 +81,6 @@
     border-radius: 4px;
     margin: 10px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Style pour l'icône */
-.add-agent-btn i {
-    margin-right: 8px;
-    font-size: 18px;
 }
 
 /* Survol du bouton spécifique */
@@ -62,9 +98,7 @@
     }
 }
 
-
 /* Style global pour la table */
-
 .table {
     width: 100%;
     border-collapse: collapse;
@@ -92,11 +126,6 @@
     background-color: #f9f9f9;
 }
 
-/* Style spécifique pour la classe "agent-table" */
-.agent-table {
-    background-color: #fff;
-}
-
 /* Stylisation au survol des lignes */
 .table tbody tr:hover {
     background-color: #f1f1f1;
@@ -114,7 +143,7 @@
     display: block;
 }
 
-/* Résolution pour petit écran (responsive) */
+/* Réduction de la taille de la table et des cellules sur mobile */
 @media (max-width: 768px) {
     .table {
         font-size: 14px;
@@ -124,9 +153,71 @@
         padding: 6px;
     }
 }
-table .btn{
+
+/* Spécifique pour les boutons dans la table */
+table .btn {
     margin: 2px;
+}
+/* Custom styling for the modal */
+.modal-content {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Add some padding for the body */
+.modal-body {
+    padding: 20px;
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #6c757d;
+    opacity: 0.8;
+}
+
+.btn-close:hover {
+    color: #495057;
+    opacity: 1;
+}
+.modal-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
   }
+  
+  .modal-header {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .modal-footer {
+    justify-content: space-between;
+  }
+  
+  .form-control {
+    border-radius: 0.25rem;
+    box-shadow: none;
+  }
+  
+
 
 
 

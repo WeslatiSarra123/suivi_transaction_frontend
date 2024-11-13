@@ -1,37 +1,71 @@
 <div class="container ooredoo-theme">
-    <div class="header">
-        <button class="btn btn-md btn-outline-primary add-agent-btn" [routerLink]="['/addAgent']">
-            <i class="fa fa-user"></i> New Back Office Agent
-        </button>
-    </div>
-    
-    <table class="table table-bordered table-striped agent-table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone Number</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let user of users">
-                <td><span>{{user.id}}</span></td>
-                <td><span>{{user.name}}</span></td>
-                <td><span>{{user.email}}</span></td>
-                <td><span>{{user.phoneNumber}}</span></td>
-                <td>
-                    <button class="btn btn-sm btn-info">
-                      <i class="fa fa-search"></i>Details</button>
-                    <button class="btn btn-sm btn-warning">
-                      <i class="fa fa-edit"></i>Edit</button>
-                    <button class="btn btn-sm btn-danger">
-                      <i class="fa fa-remove"></i>Delete</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+  <div class="header">
+      <div class="container ooredoo-theme">
+          <button mat-raised-button class="ooredoo-button" routerLink="/admin/addAgent" style="margin-bottom: 20px;">
+                  <i class="fa fa-user"></i> New Back Office Agent
+              </button>
+      </div>
+              
+  <table class="table table-bordered table-striped agent-table">
+      <thead>
+          <tr>
+              
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let user of users">
+              <td><span>{{user.name}}</span></td>
+              <td><span>{{user.email}}</span></td>
+              <td><span>{{user.phoneNumber}}</span></td>
+              <td>
+                  <button class="btn btn-sm btn-warning" (click)="openEdit(contentEdit, user)">
+                    <i class="fa fa-edit"></i>Edit</button>
+                  <button class="btn btn-sm btn-danger" (click)="deleteAgent(user.id)">
+                    <i class="fa fa-remove"></i>Delete</button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+
 </div>
+<ng-template #contentEdit let-modal>
+  <div class="modal-header justify-content-center">
+  <h4 class="modal-title" id="modal-basic-title">Update Agent Data</h4>
+</div>
+<div class="modal-body">
+  <form [formGroup]="editForm" novalidate>
+    <!-- Name Field -->
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input formControlName="name" id="name" class="form-control" placeholder="Enter agent's name" />
+    </div>
+
+    <!-- Email Field -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input formControlName="email" id="email" type="email" class="form-control" placeholder="Enter agent's email" />
+    </div>
+
+    <!-- Phone Number Field -->
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input formControlName="phoneNumber" id="phoneNumber" class="form-control" placeholder="Enter agent's phone number" />
+    </div>
+<!-- Action Buttons -->
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cancel click')">Cancel</button>
+      <button type="submit" class="btn btn-primary" (click)="onSave()">Save Changes</button>
+    </div>
+  </form>
+</div>
+</ng-template>
+
+
+  
+
 
 

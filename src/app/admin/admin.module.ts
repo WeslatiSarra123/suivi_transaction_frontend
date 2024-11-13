@@ -5,9 +5,12 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DemoAngularMaterialModule } from '../DemoAngularMaterialModule';
 import { AddAgentComponent } from './components/add-agent/add-agent.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProfileComponent } from './profile/profile.component';
+
 
 
 
@@ -15,10 +18,19 @@ import { AddAgentComponent } from './components/add-agent/add-agent.component';
         AdminComponent,
         DashboardComponent,
         AddAgentComponent,
-    ], imports: [CommonModule,
+        ProfileComponent,
+        
+        
+    ], 
+    imports: [CommonModule,
         AdminRoutingModule,
         FormsModule,
         ReactiveFormsModule,
-        DemoAngularMaterialModule], 
-        providers: [provideHttpClient(withInterceptorsFromDi())] })
+        DemoAngularMaterialModule,
+        NgbModule,
+        
+    ],
+
+        providers: 
+        [provideHttpClient(withInterceptorsFromDi())] })
 export class AdminModule { }

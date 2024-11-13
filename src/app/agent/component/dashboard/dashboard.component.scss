@@ -1,0 +1,35 @@
+.card-title {
+    font-size: 1.75rem; /* Augmente la taille de la police */
+    font-weight: 600; /* Met en gras */
+  }
+  
+  .line {
+    position: absolute;
+    bottom: -10px; /* Positionne la ligne sous le texte */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%; /* Largeur de la ligne */
+    height: 4px; /* Hauteur de la ligne */
+    background-color: #007bff; /* Couleur de la ligne */
+    border-radius: 5px; /* Arrondir les bords */
+  }
+  
+.container {
+    max-width: 900px;
+  }
+  
+  .card {
+    border-radius: 10px;
+  }
+  
+  button {
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+    color: white;
+  }
+  
+ 
+  

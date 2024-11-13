@@ -10,19 +10,39 @@ import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ChatDialogComponent } from './chat-boot/chat-dialog/chat-dialog.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+
+
+
 
 @NgModule({ declarations: [
         AppComponent,
         LoginComponent,
         SignupComponent,
-        HomeComponent
+        HomeComponent,
+        ForgetPasswordComponent,
+        ProfileComponent,
+        ResetPasswordComponent,
+        
+        
+        
+        
     ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
+    bootstrap: [AppComponent], 
+    
+    imports: [BrowserModule,
         AppRoutingModule,
         DemoAngularMaterialModule,
         FormsModule,
-        ReactiveFormsModule], providers: [
+        ReactiveFormsModule,
+       
+        
+        
+    ], 
+    providers: [
         provideAnimationsAsync(),
         provideHttpClient(withInterceptorsFromDi())
     ] })

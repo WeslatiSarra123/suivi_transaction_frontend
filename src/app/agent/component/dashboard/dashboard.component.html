@@ -1,1 +1,72 @@
-<p>dashboard works!</p>
+<div class="container mt-5">
+  <!-- Card for the search form -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <h4 class="card-title text-center mb-4 position-relative">
+        <span class="fw-bold text-primary">Search Transactions</span>
+        <div class="line"></div>
+      </h4>
+      <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+        <div class="row g-3">
+          <!-- Date input -->
+          <div class="col-md-4">
+            <label for="date" class="form-label">Date</label>
+            <input id="date" type="date" formControlName="date" class="form-control" required>
+          </div>
+
+          <!-- Transaction Type -->
+          <div class="col-md-4">
+            <label for="type" class="form-label">Transaction Type</label>
+            <select id="type" formControlName="type" class="form-select" required>
+              <option value="" disabled selected>Select a type</option>
+              <option *ngFor="let type of transactionTypes" [value]="type">{{ type }}</option>
+            </select>
+          </div>
+
+          <!-- Order Number -->
+          <div class="col-md-4">
+            <label for="orderNumber" class="form-label">Order Number</label>
+            <input id="orderNumber" type="text" formControlName="orderNumber" class="form-control" placeholder="Enter order number" required>
+          </div>
+        </div>
+
+        <!-- Search button -->
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-primary btn-lg px-5">
+            <i class="fas fa-search"></i> Search
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Display transaction results -->
+  <div *ngIf="transactions && transactions.length > 0" class="card shadow-sm">
+    <div class="card-body">
+      <h4 class="card-title text-center">Transaction Results</h4>
+      <table class="table table-hover table-striped mt-3">
+        <thead class="table-light">
+          <tr>
+            <th>Order Number</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Currency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of transactions">
+            <td>{{ transaction.orderNumber }}</td>
+            <td>{{ transaction.type }}</td>
+            <td>{{ transaction.amount | currency: transaction.currency }}</td>
+            <td>{{ transaction.currency }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Error message -->
+  <div *ngIf="errorMessage" class="text-danger text-center mt-3">
+    <p>{{ errorMessage }}</p>
+  </div>
+</div>

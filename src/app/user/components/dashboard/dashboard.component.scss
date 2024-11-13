@@ -1,0 +1,86 @@
+.agent-table {
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère à la table */
+}
+
+.agent-table th {
+    background-color: #f8f9fa; /* Couleur d'arrière-plan pour l'en-tête */
+    color: #495057; /* Couleur du texte pour l'en-tête */
+    text-align: center; /* Centre le texte dans les en-têtes */
+}
+
+.agent-table td {
+    padding: 12px; /* Ajouter du padding pour une meilleure lisibilité */
+    vertical-align: middle; /* Alignement vertical au centre */
+}
+
+.table-row:hover {
+    background-color: #e9ecef; /* Couleur de survol pour les lignes */
+}
+
+.btn {
+    margin-right: 5px; /* Ajouter de l'espace entre les boutons */
+    border-radius: 5px; /* Arrondir les bords des boutons */
+}
+
+.btn-warning {
+    background-color: #ffc107; /* Couleur personnalisée pour le bouton d'appel */
+    border: none; /* Supprime la bordure par défaut */
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Couleur personnalisée pour le bouton SMS */
+    border: none; /* Supprime la bordure par défaut */
+}
+
+/* Effet de survol sur les boutons */
+.btn-warning:hover {
+    background-color: #e0a800; /* Couleur d'arrière-plan au survol pour le bouton d'appel */
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Couleur d'arrière-plan au survol pour le bouton SMS */
+}
+
+/* Ajout d'un effet de transition */
+.btn {
+    transition: background-color 0.3s ease; /* Douce transition lors du survol */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2; /* Couleur de fond pour les lignes paires */
+}
+.modal {
+    display: block; /* Afficher le modal */
+    position: fixed; /* Position fixe */
+    z-index: 1; /* Au-dessus des autres éléments */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largeur complète */
+    height: 100%; /* Hauteur complète */
+    overflow: auto; /* Scroll si nécessaire */
+    background-color: rgba(0, 0, 0, 0.4); /* Fond transparent noir */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Centré verticalement */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largeur du modal */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -5,10 +5,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddAgentComponent } from './components/add-agent/add-agent.component';
 
 
+
 const routes: Routes = [
   {path: '', component: AdminComponent }, 
   {path: 'dashboard', component: DashboardComponent},
   {path: 'addAgent', component: AddAgentComponent},
+  
   
 
 
