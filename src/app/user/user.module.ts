@@ -7,14 +7,14 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileComponent } from './profile/profile.component';
-import { CommentComponent } from './comment/comment.component';
+
 
 @NgModule({
   declarations: [
     UserComponent,
     DashboardComponent,
     ProfileComponent,
-    CommentComponent
+    
   ],
   imports: [
     CommonModule,

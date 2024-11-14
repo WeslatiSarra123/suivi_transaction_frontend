@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ForgotPasswordService } from '../forgot-password.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'reset-password',
@@ -11,28 +11,22 @@ import { ForgotPasswordService } from '../forgot-password.service';
 export class ResetPasswordComponent {
   resetPasswordForm: FormGroup;
   message: string = '';
-  token: string;
 
-  constructor(
-    private fb: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router,
-    private forgotPasswordService: ForgotPasswordService
-  ) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute) {
+    // Crée un formulaire pour saisir le nouveau mot de passe
     this.resetPasswordForm = this.fb.group({
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
-    this.token = this.route.snapshot.queryParamMap.get('token') || '';
   }
 
-  onSubmit(): void {
-    const password = this.resetPasswordForm.value.password;
-    this.forgotPasswordService.resetPassword(this.token, password).subscribe(
-      response => {
-        this.message = 'Password successfully reset!';
-        this.router.navigate(['/login']); // Redirect to login
-      },
-      error => this.message = 'Failed to reset password. Token might be invalid or expired.'
-    );
+  // Envoie le nouveau mot de passe et le jeton au backend
+  submit() {
+    const token = this.route.snapshot.queryParamMap.get('token');
+    const password = this.resetPasswordForm.get('password')?.value;
+    this.http.post(`http://localhost:8080/api/reset-password?token=${token}`, { newPassword: password })
+      .subscribe({
+        next: () => this.message = 'Password successfully reset.',
+        error: (err) => this.message = err.error.message
+      });
   }
 }
