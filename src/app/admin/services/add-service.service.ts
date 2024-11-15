@@ -12,7 +12,7 @@ export class AddServiceService {
   registerAgent ( addRequest:any):Observable<any>{
     return this.http.post(BASIC_URL+ "sign-upAgent", addRequest);
  }
- //updateAgent(id: number, user: User): Observable<void> {
+ //updateAgent(id: number, user: UserTypes): Observable<void> {
   //return this.http.put(BASIC_URL+ "sign-upAgent"/${id}/edit`, user);
 }
-  
+

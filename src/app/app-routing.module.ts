@@ -9,13 +9,13 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent}, 
-  { path: 'login', component: LoginComponent }, 
-  { path: 'signup', component: SignupComponent }, 
-  { path: 'Profile', component: ProfileComponent },
-  { path: 'forgetPassword', component: ForgetPasswordComponent }, 
+  { path: '', component: HomeComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'forgetPassword', component: ForgetPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
-  { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) }, 
+  { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: 'agent', loadChildren: () => import('./agent/agent.module').then(m => m.AgentModule) },
   { path: 'chatBoot', loadChildren: () => import('./chat-boot/chat-boot.module').then(m => m.ChatBootModule) },

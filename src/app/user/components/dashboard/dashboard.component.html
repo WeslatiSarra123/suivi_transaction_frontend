@@ -1,36 +1,32 @@
-<table class="table table-bordered table-striped agent-table">
-    <thead>
-        <tr>
-            
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let user of users">
-            <td><span>{{user.name}}</span></td>
-            <td><span>{{user.email}}</span></td>
-            <td><span>{{user.phoneNumber}}</span></td>
-            <td>
-                <a class="btn btn-sm btn-warning" [href]="'tel:+216' + user.phoneNumber">
-                    <i class="fa fa-phone"></i>Call
-                  </a> 
-                 
-             
-             <a class="btn btn-sm btn-info" [href]="'mailto:' + user.email">
-                <i class="fa fa-envelope-open"></i> Send Email
-            </a>
-            
+<div class="container">
+    <table class="table table-bordered table-hover agent-table">
+      <thead>
+      <tr>
+
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users" [ngClass]="{'table-row-hover': true}">
+        <td><span>{{ user.name }}</span></td>
+        <td><span>{{ user.email }}</span></td>
+        <td><span>{{ user.phoneNumber }}</span></td>
+        <td>
+          <a class="btn btn-sm btn-warning" [href]="'tel:+216' + user.phoneNumber">
+            <i class="fa fa-phone"></i>
+          </a>
 
 
-                
-                
-                
-                  
-            </td>
-        </tr>
-    </tbody>
-</table>
+          <a class="btn btn-sm btn-info" [href]="'mailto:' + user?.email" title="Send Email">
+            <i class="fa fa-envelope-open"></i>
+          </a>
 
+
+        </td>
+      </tr>
+      </tbody>
+    </table>
+</div>

@@ -11,22 +11,7 @@ import { ThemeService } from './theme.service';
 export class AppComponent {
   title = 'SuiviTransactionOredoo';
 
-  isUserLoggedIn : boolean= UserStorageService.isUserLoggedIn();
-  isAdminLoggedIn : boolean= UserStorageService.isAdminLoggedIn();
-  isAgentLoggedIn : boolean= UserStorageService.isAgentLoggedIn();
-  constructor(private router :Router , private themeService: ThemeService){}
+  constructor( private themeService: ThemeService){}
   ngOnInit():void{
-    this.router.events.subscribe( event=>{
-      this.isUserLoggedIn=UserStorageService.isUserLoggedIn();
-      this.isAdminLoggedIn=UserStorageService.isAdminLoggedIn();
-      this.isAgentLoggedIn=UserStorageService.isAgentLoggedIn();
-    })
-  }
-  logout(){
-    UserStorageService.signOut();
-    this.router.navigateByUrl('login');
-  }
-  toggleTheme() {
-    this.themeService.toggleTheme();
   }
 }

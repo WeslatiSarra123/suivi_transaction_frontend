@@ -1,0 +1,65 @@
+/* Global Styling */
+
+#content {
+  flex: 1; /* Ensure the content takes available space */
+}
+
+.custom-toolbar {
+  height: 64px;
+  background-color: #ed1c24; /* Rouge Ooredoo */
+  padding: 0 16px;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin-right: 16px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.button-navbar {
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-left: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.button-navbar:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.button-navbar.active {
+  font-weight: 700;
+  background-color: #eff5f5f1;
+  color: #fff;
+}
+
+
+
+.active-link {
+  color: white !important;
+  height: 100%;
+  border-bottom: 4px solid white;
+  border-radius: 0;
+  font-weight: bold;
+}
+
+.button-navbar.mat-button {
+  transition: background-color 0.3s;
+}
+
+.button-navbar.mat-button:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Lighter hover effect */
+}

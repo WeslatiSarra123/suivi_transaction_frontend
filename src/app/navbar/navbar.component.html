@@ -1,0 +1,31 @@
+<mat-toolbar class="custom-toolbar">
+  <span routerLink="" class="navbar-brand">Suivi Transaction</span>
+  <span class="spacer"></span>
+
+  <!-- Générer les boutons dynamiquement selon le rôle -->
+  <ng-container *ngFor="let item of getUserMenu()">
+    <button mat-button *ngIf="item.link"   class="button-navbar"    routerLinkActive="active-link"  [routerLinkActiveOptions]="{ exact: true }"
+            [routerLink]="item.link">{{ item.label }}</button>
+    <button mat-button *ngIf="!item.link" class="button-navbar" (click)="item.action?.()">{{ item.label }}</button>
+  </ng-container>
+  <div class="example-button-row" *ngIf="isAdminLoggedIn || isAgentLoggedIn || isUserLoggedIn">
+    <div class="example-flex-container" >
+      <button mat-icon-button  [matMenuTriggerFor]="menu" aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </div>
+    <mat-menu #menu="matMenu">
+
+      <button mat-menu-item routerLink="/profile">
+        <mat-icon>account_circle</mat-icon>
+        Profile</button>
+      <button mat-menu-item (click)="this.toggleTheme()">
+        <mat-icon>nightlight_round</mat-icon>
+        Dark Theme</button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+
+        Logout</button>
+    </mat-menu>
+  </div>
+</mat-toolbar>

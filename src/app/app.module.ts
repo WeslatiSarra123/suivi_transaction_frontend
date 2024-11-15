@@ -14,6 +14,7 @@ import { ChatDialogComponent } from './chat-boot/chat-dialog/chat-dialog.compone
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
@@ -26,6 +27,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
         ForgetPasswordComponent,
         ProfileComponent,
         ResetPasswordComponent,
+        NavbarComponent,
         
         
         

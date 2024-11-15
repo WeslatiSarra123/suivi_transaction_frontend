@@ -3,10 +3,17 @@
 @import "font-awesome/css/font-awesome.css";
 @import 'app/light-theme.scss';
 @import 'app/dark-theme.scss';
-
+root {
+  --red-asset: #ed1c24;
+}
 body {
-    background-color: var(--background-color);
+    background-color: #f4f4f4;
     color: var(--text-color);
   }
-  
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
