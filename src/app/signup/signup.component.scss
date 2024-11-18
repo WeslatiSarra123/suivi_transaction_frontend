@@ -10,7 +10,7 @@ mat-card{
     padding: 20px;
     @media screen and (max-width:500px) {
           max-width: 90%;
-    }   
+    }
 }
 mat-card-title{
     text-align: center;
@@ -36,8 +36,8 @@ button{
     mat-form-field{
         margin-bottom: 10px;
     }
-    
+
 }
 .error-snackbar{
-    background-color: #f44336 !important;
+    background-color: var(--red-asset) !important;
 }

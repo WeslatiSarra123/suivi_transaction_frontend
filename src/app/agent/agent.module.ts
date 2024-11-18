@@ -7,7 +7,6 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TransactionResultsComponent } from './transaction-results/transaction-results.component';
-import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -15,8 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
     AgentComponent,
     DashboardComponent,
     TransactionResultsComponent,
-    ProfileComponent,
-   
+
   ],
   imports: [
     CommonModule,
@@ -24,7 +22,7 @@ import { ProfileComponent } from './profile/profile.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-  
+
   ]
 })
 export class AgentModule { }
