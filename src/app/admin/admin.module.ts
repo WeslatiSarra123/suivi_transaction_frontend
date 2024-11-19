@@ -9,7 +9,6 @@ import { HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@an
 import { DemoAngularMaterialModule } from '../DemoAngularMaterialModule';
 import { AddAgentComponent } from './components/add-agent/add-agent.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -18,19 +17,18 @@ import { ProfileComponent } from './profile/profile.component';
         AdminComponent,
         DashboardComponent,
         AddAgentComponent,
-        ProfileComponent,
-        
-        
-    ], 
+
+
+    ],
     imports: [CommonModule,
         AdminRoutingModule,
         FormsModule,
         ReactiveFormsModule,
         DemoAngularMaterialModule,
         NgbModule,
-        
+
     ],
 
-        providers: 
+        providers:
         [provideHttpClient(withInterceptorsFromDi())] })
 export class AdminModule { }

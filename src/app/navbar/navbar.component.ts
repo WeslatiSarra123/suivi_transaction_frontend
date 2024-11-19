@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {UserStorageService} from '../services/storage/user-storage.service';
 import {Router} from '@angular/router';
-import {ThemeService} from '../theme.service';
+import {ThemeService} from '../services/theme.service';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-navbar',
@@ -12,8 +13,10 @@ export class NavbarComponent implements OnInit {
   isUserLoggedIn: boolean = UserStorageService.isUserLoggedIn();
   isAdminLoggedIn: boolean = UserStorageService.isAdminLoggedIn();
   isAgentLoggedIn: boolean = UserStorageService.isAgentLoggedIn();
+  isMobile: boolean = false;
 
-  constructor(private router: Router, private themeService: ThemeService) {
+  constructor(private router: Router, private themeService: ThemeService,
+              private breakpointObserver: BreakpointObserver) {
   }
 
   ngOnInit() {
@@ -25,46 +28,45 @@ export class NavbarComponent implements OnInit {
       this.isAdminLoggedIn = UserStorageService.isAdminLoggedIn();
       this.isAgentLoggedIn = UserStorageService.isAgentLoggedIn();
     })
+    this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.Handset]).subscribe(result => {
+      this.isMobile = result.matches;
+    });
   }
+
   public menus: { role: string, items: { label: string, link: string, action?: () => void }[] }[] = [
     {
       role: 'guest',
       items: [
-        { label: 'ChatBoot', link: '/chatBoot/chat' },
+        {label: 'ChatBoot', link: '/chatBoot/chat'},
+        {label: 'Login', link: '/login'},
       ]
     },
     {
       role: 'user',
       items: [
-        { label: 'Dashboard', link: '/user/dashboard' },
-        { label: 'Comments', link: '/user/comment' },
-        { label: 'ChatBoot', link: '/chatBoot/chat' },
-        { label: 'Dark Theme', link: '', action: () => this.toggleTheme() },
-        { label: 'LogOut', link: '', action: () => this.logout() }
+        {label: 'Dashboard', link: '/user/dashboard'},
+        {label: 'Comments', link: '/user/comments'},
       ]
     },
     {
       role: 'admin',
       items: [
-        { label: 'Dashboard', link: '/admin/dashboard' },
-        { label: 'ChatBoot', link: '/chatBoot/chat' },
-        { label: 'Dark Theme', link: '', action: () => this.toggleTheme() },
-        { label: 'LogOut', link: '', action: () => this.logout() }
+        {label: 'Dashboard', link: '/admin/dashboard'},
+        {label: 'ChatBoot', link: '/chatBoot/chat'},
       ]
     },
     {
       role: 'agent',
       items: [
-        { label: 'Dashboard', link: '/agent/dashboard' },
-        { label: 'ChatBoot', link: '/chatBoot/chat' },
-        { label: 'Dark Theme', link: '', action: () => this.toggleTheme() },
-        { label: 'LogOut', link: '', action: () => this.logout() }
+        {label: 'Dashboard', link: '/agent/dashboard'},
+        {label: 'ChatBoot', link: '/chatBoot/chat'},
       ]
     }
   ];
 
   // Méthode pour basculer le thème
   toggleTheme() {
+    console.info("change")
     this.themeService.toggleTheme();
   }
 

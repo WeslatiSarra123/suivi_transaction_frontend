@@ -1,8 +1,33 @@
-<div *ngIf="user">
-    <h1>{{ user.name }}</h1>
-    <p>Email: {{ user.email }}</p>
-    <p>PhoneNumber: {{ user.phoneNumber }}</p>
-    <button class="btn btn-sm btn-warning" >
-        <i class="fa fa-edit"></i>Edit</button>
-  </div>
-  
+<div class="container">
+
+  <mat-card class="profile-card">
+    <mat-card-header>
+      <div mat-card-avatar class="profile-avatar">
+        <img [src]="'assets/'+user.photo" alt="Profile Photo"/>
+      </div>
+      <button mat-icon-button class="edit-icon" (click)="onEdit()">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p>
+        <mat-icon>person</mat-icon>
+        {{ user.name }}
+      </p>
+      <p>
+        <mat-icon>email</mat-icon>
+        {{ user.email }}
+      </p>
+      <p>
+        <mat-icon>phone</mat-icon>
+        {{ user.phoneNumber }}
+      </p>
+      <p>
+        <mat-icon>location_on</mat-icon>
+        {{ user.address }}
+      </p>
+
+    </mat-card-content>
+  </mat-card>
+</div>

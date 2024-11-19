@@ -1,19 +1,155 @@
-/* You can add global styles to this file, and also import other style files */
+/* Importation des styles externes */
 @import "bootstrap/dist/css/bootstrap.css";
 @import "font-awesome/css/font-awesome.css";
-@import 'app/light-theme.scss';
-@import 'app/dark-theme.scss';
-root {
-  --red-asset: #ed1c24;
-}
-body {
-    background-color: #f4f4f4;
-    color: var(--text-color);
-  }
+@import 'assets/light-theme';
+@import 'assets/dark-theme';
 
+/* Définition des couleurs et des variables de thème */
+:host {
+  --background-color: rgba(18, 18, 18, 0.5);
+  --text-color: #000000;
+  --primary-color: #ffffff;
+  --accent-color: #ed1c24;
+  --card-background-color: #ffffff;
+  --hover-background-color: #f5f5f5;
+  --navbar-bg-color: var(--accent-color);
+  --button-hover-bg: rgba(255, 255, 255, 0.2);
+  --active-button-bg: #eff5f5f1;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#content {
+  flex: 1;
+}
+
+/* Global Styling */
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  min-height: 100vh;
   height: 90vh;
+}
+
+mat-card {
+  background-color: var(--card-background-color) !important;
+}
+
+.primary-button {
+  background: var(--accent-color);
+  color: var(--text-color);
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.primary-button:hover {
+  background: var(--text-color);
+  color: var(--accent-color);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Table Styling */
+.agent-table {
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow-y: auto;
+}
+
+.agent-table th {
+  background-color: rgba(var(--background-color),0.5);
+  color: var(--text-color);
+  text-align: center;
+  padding: 12px;
+  font-weight: 600;
+}
+
+.agent-table td {
+  padding: 12px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.agent-table tbody tr:hover {
+  background-color: var(--hover-background-color);
+}
+
+/* Navbar Styling */
+.custom-toolbar {
+  background-color: var(--navbar-bg-color);
+  padding: 0 16px;
+  color: var(--text-color);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-right: 16px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* Button Styling */
+button {
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-left: 8px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover-bg);
+}
+
+button.active {
+  font-weight: 700;
+  background-color: var(--active-button-bg);
+  color: #fff;
+}
+
+/* Custom Styling for Fixed Position */
+:host {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments for Container */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+  }
 }

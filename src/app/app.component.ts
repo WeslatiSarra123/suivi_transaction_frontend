@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { UserStorageService } from './services/storage/user-storage.service';
-import { Router } from '@angular/router';
-import { ThemeService } from './theme.service';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -13,5 +11,6 @@ export class AppComponent {
 
   constructor( private themeService: ThemeService){}
   ngOnInit():void{
+    this.themeService.toggleTheme();
   }
 }

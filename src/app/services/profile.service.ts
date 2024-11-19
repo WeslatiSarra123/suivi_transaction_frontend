@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../admin/components/dashboard/dashboard.component';
+import {User} from '../model/user.types';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class ProfileService {
 
   constructor(private http: HttpClient) { }
 
-  getProfile(userId: number): Observable<User> {
+  getProfile(userId: any): Observable<User> {
     return this.http.get<User>(`${this.baseUrl}/${userId}`);
   }
 }

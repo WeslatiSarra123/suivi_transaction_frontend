@@ -10,7 +10,7 @@
                         Please enter a valid name.
                     </mat-error>
                 </mat-form-field>
-  
+
                 <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label>
                     <input matInput formControlName="email" placeholder="Email" required>
@@ -18,7 +18,7 @@
                         Please enter a valid email.
                     </mat-error>
                 </mat-form-field>
-  
+
                 <!-- Nouveau champ pour le numéro de téléphone -->
                 <mat-form-field appearance="outline">
                     <mat-label>Phone Number</mat-label>
@@ -28,7 +28,7 @@
                     </mat-error>
                 </mat-form-field>
                 <!-- Fin du nouveau champ -->
-  
+
                 <mat-form-field appearance="outline">
                     <mat-label>Password</mat-label>
                     <input matInput type="{{hidePassword ? 'password' : 'text'}}" formControlName="password" placeholder="Password" required>
@@ -39,7 +39,7 @@
                         Please enter a valid password.
                     </mat-error>
                 </mat-form-field>
-  
+
                 <mat-form-field appearance="outline">
                     <mat-label>Confirm Password</mat-label>
                     <input matInput type="{{hidePassword ? 'password' : 'text'}}" formControlName="confirmPassword" placeholder="Password" required>
@@ -50,8 +50,8 @@
                         Please enter a valid confirm Password.
                     </mat-error>
                 </mat-form-field>
-  
-                <button mat-raised-button color="primary" type="submit" [disabled]="addForm.invalid" (click)="onSubmit()">
+
+                <button mat-raised-button class="primary-button" type="submit" [disabled]="addForm.invalid" (click)="onSubmit()">
                     Add New Agent Back office
                 </button>
             </form>

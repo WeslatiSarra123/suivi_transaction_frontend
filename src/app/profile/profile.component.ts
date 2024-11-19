@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from '../admin/components/dashboard/dashboard.component';
-import { ProfileService } from '../services/profile.service';
+import {Component, OnInit} from '@angular/core';
+import {ProfileService} from '../services/profile.service';
+import {User} from '../model/user.types';
+import {UserStorageService} from '../services/storage/user-storage.service';
 
 @Component({
   selector: 'profile',
@@ -10,11 +11,13 @@ import { ProfileService } from '../services/profile.service';
 export class ProfileComponent implements OnInit {
   user: User | null = null;
 
-  constructor(private profileService: ProfileService) { }
+  constructor(private profileService: ProfileService,
+              private storageService: UserStorageService) {
+  }
 
   ngOnInit(): void {
-    const userId = 1; // Remplacez par l'ID de l'utilisateur actuel
-    this.profileService.getProfile(userId).subscribe(
+    const id = UserStorageService.getUserId();
+    this.profileService.getProfile(id).subscribe(
       (data) => {
         this.user = data;
       },
@@ -22,5 +25,9 @@ export class ProfileComponent implements OnInit {
         console.error('Erreur lors de la récupération du profil:', error);
       }
     );
+  }
+
+  onEdit() {
+
   }
 }
