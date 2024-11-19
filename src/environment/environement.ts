@@ -4,7 +4,11 @@ export const environment = {
     accessToken: 'ya29.c.c0ASRK0Gb5AUbpDVVo6AFtX7OE2Po7gHT1u1W8dg4qTmPWaFH2LLxbTUM6irjQ2nMWS5cUVEvQi--6sDPIYdzbEBAHYWhdhvP6kbCTDWYXCoB_azH0JQmzQjlNiTQrHFn6O2h2gb5OkzWJZ-p3TpijstAapTow5n0hjdynCaaYeK3ELculYvsR3eyRkfkpriCFpyE0iNTOWNnvC9M0kENagyZVXK2kkjtNo1aS2wE7a1jVGpv-LXuzh-AgrkZGU150_heUHGWquYVW1uyG3vx5tscc8nMFDljGV84_kmEIdhGD9H9TvGWUxGRBKZ_Udx5Bp7nf9fj7yXi6-jicEMs_UkXtkGCZggj9kNZW7h0sag1qArNWzEd-yMJe4Qj5Hn7lVtkyUwG399Pe267B9kfJoW3RRomYq8Mqga8ky9a5IqJpyrVop0z1jlZMBXwf7ev6w9BZZ_2YSrWymBFya0xi35I5m8R-yBhbrj-RmIxka0hp344zn5VfwW22Jqvl5QWhQ_YurVvkYlOvh6BpngVWkxXdh2oQq8vtw5U_q7O5ooWdJaRba0e5yxO80ef4bv4-IRx6YZ8V8pf03twB4e0ebj_MqYtsBzn6BW6qtdi5eJqxRqZyybRbprBrFhIah04W3b9F4p-6iXQwt-npSYsjlxminRm3sgdvvzyIyg7dBYBeQIpMU30ahWimjsUpOyhxh3S05ZYgv13puZ68wlRZt3Vniu4uXhq8Qha4gOmloet39_82ziexrYZrMzYzcSMl2o8VYiQz_5rzh9WVr3uvrFsMsn9qQZSy9nk4k0dV-_JsU5w7pM4xsF0X39-o7Fu9a_1_V4JcbVk3miMQuaRYvrlgv8xh52J4OwZgVnfUOoIrhXbj8ZketZBu24J9UYYaiFcM40YwxjkOdhsm4OyZqhSyQ_tg35ScyuMzgMY7mmrfJ80u9imaXB3gR0Q4adVJgpjpcx58JtUXJmhkqFr60JcdgoQ3IeOJblqwjnRf-ZFh-JU2ru1gUX-',
   },
   projectId: 'transaction-agent-jiam',
-  apiUrl: 'http://localhost:8080/api/'
-
+  apiUrl: 'http://localhost:8080/api/v1/',
+  apiImg: 'http://localhost:8080/',
+  auth: 'auth/',
+  users: 'users/',
+  transactions: 'transactions/',
+  token: 'token'
 
 };

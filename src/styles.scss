@@ -1,10 +1,10 @@
-/* Importation des styles externes */
+
 @import "bootstrap/dist/css/bootstrap.css";
 @import "font-awesome/css/font-awesome.css";
 @import 'assets/light-theme';
 @import 'assets/dark-theme';
 
-/* Définition des couleurs et des variables de thème */
+
 :host {
   --background-color: rgba(18, 18, 18, 0.5);
   --text-color: #000000;
@@ -35,17 +35,13 @@ html, body {
   flex: 1;
 }
 
-/* Global Styling */
+
 .container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: 100vh;
+  min-height: 80vh;
   height: 90vh;
-}
-
-mat-card {
-  background-color: var(--card-background-color) !important;
 }
 
 .primary-button {
@@ -53,7 +49,7 @@ mat-card {
   color: var(--text-color);
   font-weight: bold;
   border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 10px 20px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -64,7 +60,7 @@ mat-card {
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Table Styling */
+
 .agent-table {
   margin: 20px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -73,8 +69,8 @@ mat-card {
 }
 
 .agent-table th {
-  background-color: rgba(var(--background-color),0.5);
-  color: var(--text-color);
+  background-color: var(--background-th) !important;
+  color: var(--primary-color) !important;
   text-align: center;
   padding: 12px;
   font-weight: 600;
@@ -84,24 +80,22 @@ mat-card {
   padding: 12px;
   text-align: center;
   vertical-align: middle;
+  color: var(--text-color) !important;
+  background-color: var(--background-td) !important;
 }
 
 .agent-table tbody tr:hover {
   background-color: var(--hover-background-color);
 }
 
-/* Navbar Styling */
+
 .custom-toolbar {
   background-color: var(--navbar-bg-color);
   padding: 0 16px;
   color: var(--text-color);
 }
 
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+
 
 .navbar-brand {
   font-size: 24px;
@@ -114,7 +108,7 @@ mat-card {
   flex: 1;
 }
 
-/* Button Styling */
+
 button {
   color: var(--text-color);
   text-transform: uppercase;
@@ -127,13 +121,9 @@ button:hover {
   background-color: var(--button-hover-bg);
 }
 
-button.active {
-  font-weight: 700;
-  background-color: var(--active-button-bg);
-  color: #fff;
-}
 
-/* Custom Styling for Fixed Position */
+
+
 :host {
   display: block;
   position: fixed;
@@ -144,7 +134,7 @@ button.active {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive Adjustments for Container */
+
 @media screen and (max-width: 768px) {
   .container {
     flex-direction: column;
@@ -152,4 +142,10 @@ button.active {
     align-items: center;
     height: auto;
   }
+}
+
+
+
+form {
+  display: grid;
 }

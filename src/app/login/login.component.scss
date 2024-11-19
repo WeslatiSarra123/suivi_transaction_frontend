@@ -1,5 +1,6 @@
 .container{
-  align-items: center !important;
+  margin-top: 2%;
+  height: 100vh;
 }
 
 mat-card {
@@ -43,11 +44,6 @@ mat-form-field {
   flex-direction: column;
   gap: 10px; // Space between the buttons
   width: 100%;
-}
-
-.forgot-password-container {
-  margin-top: 20px; // Space above the "Forgot password?" link
-  text-align: center;
 }
 
 .logo-container {

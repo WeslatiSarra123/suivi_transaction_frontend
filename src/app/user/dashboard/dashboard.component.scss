@@ -1,0 +1,106 @@
+.container {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: flex-start !important;
+  margin-top: 2%;
+}
+
+.btn {
+  margin-right: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+
+
+
+
+.agent-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+
+.container {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: flex-start !important;
+  margin-top: 2%;
+}
+
+.ooredoo-button i {
+  margin-right: 8px;
+}
+
+
+
+
+
+
+
+.btn i {
+  margin-right: 5px;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+
+.table-bordered th, .table-bordered td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+
+.table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
+}
+
+
+.table-striped tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+  transition: background-color 0.3s;
+}
+
+
+.table td {
+  text-align: left;
+  padding: 10px;
+}
+
+
+.table td span {
+  display: block;
+}
+
+
+@media (max-width: 768px) {
+  .table {
+    font-size: 14px;
+  }
+
+  .table th, .table td {
+    padding: 6px;
+  }
+}
+
+
+table .btn {
+  margin: 2px;
+}
+
+
+
+
+

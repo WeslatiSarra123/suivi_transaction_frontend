@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Transaction } from '../component/dashboard/dashboard.component';
-import { TransactionService } from '../transaction.service';
+import { TransactionService } from '../../shared/services/transaction.service';
 import { HttpClient } from '@angular/common/http';
+import {Transaction} from '../../shared/model/transaction.types';
 
 @Component({
   selector: 'app-transaction-results',
@@ -15,9 +15,9 @@ export class TransactionResultsComponent {
   errorMessage: string = '';
   isPayNowEnabled: boolean = false;
 
-  constructor(private transactionService: TransactionService, private router: Router, 
+  constructor(private transactionService: TransactionService, private router: Router,
     private http: HttpClient ) {}
-     handler:any = null ; 
+     handler:any = null ;
 
   ngOnInit(): void {
     // Vous devez probablement passer les transactions via le service ou le routeur
@@ -45,7 +45,7 @@ export class TransactionResultsComponent {
   }
   payNow(amount: number, type: string, orderNumber: string) {
     alert(`Initiating payment process for amount: ${amount} TND`);
-    var handler = (<any>window).StripeCheckout.configure({
+    const handler = (<any>window).StripeCheckout.configure({
       key:'pk_test_51QD7EKEQciJg6fdejdysNrjR0vydXih3oj29K7CLbADOSYjRJsLPg4pVRHpDoDbO95Q3utkwh50nf4cX0IrvkR6800UosQjvfZ',
       locale: 'auto',
       token: function (token: any) {
@@ -57,18 +57,18 @@ export class TransactionResultsComponent {
       closed: () => {
         console.log('Payment window closed');}
     });
- 
+
     handler.open({
       name: 'Payment',
       description: `Payment for transaction type: ${type}`,
-      amount: amount * 100, 
-      
+      amount: amount * 100,
+
     });
- 
+
   }
   loadStripe() {
     if (!window.document.getElementById('stripe-script')) {
-        var s = window.document.createElement("script");
+        const s = window.document.createElement("script");
         s.id = "stripe-script";
         s.type = "text/javascript";
         s.src = "https://checkout.stripe.com/checkout.js";
@@ -89,9 +89,9 @@ export class TransactionResultsComponent {
     }
 }
 
-  
-  
+
+
 }
 
-  
-  
+
+

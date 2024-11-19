@@ -1,8 +1,7 @@
 import {Component} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import {HttpClient} from '@angular/common/http';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {UserService} from '../services/user.service';
+import {UserService} from '../shared/services/user.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -48,7 +47,6 @@ export class ForgetPasswordComponent {
   }
 
   resetPassword() {
-    const email: string = this.resetPasswordForm.get('email')?.value;
     this.userService.resetPassword(this.resetPasswordForm.get('token')?.value, this.resetPasswordForm.get('password')?.value).subscribe({
       next: () => {
         this.tokenSent = true;
@@ -64,5 +62,4 @@ export class ForgetPasswordComponent {
     });
   }
 
-  protected readonly onReset = onreset;
 }

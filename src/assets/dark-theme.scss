@@ -1,9 +1,12 @@
 @import 'styles/colors';
 
 body.dark-theme {
-  --background-color: 244,244,244 ;
+  --background-color: #10161c ;
   --text-color: #ffffff;
-  --primary-color: #ed1c24;
-
+  --primary-color: #f4f4f4;
+  --background-th: #10161c;
+  --background-td: #415e79;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 

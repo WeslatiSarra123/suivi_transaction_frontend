@@ -1,11 +1,11 @@
 <div class="container">
-
   <mat-card class="profile-card">
     <mat-card-header>
       <div mat-card-avatar class="profile-avatar">
-        <img [src]="'assets/'+user.photo" alt="Profile Photo"/>
+        <img [src]="user?.photo===null? 'assets/default.png':environment.apiImg+user?.photo"
+             alt="Profile Photo"/>
       </div>
-      <button mat-icon-button class="edit-icon" (click)="onEdit()">
+      <button mat-icon-button class="edit-icon" (click)="onEdit(contentEdit,user)">
         <mat-icon>edit</mat-icon>
       </button>
     </mat-card-header>
@@ -13,21 +13,66 @@
     <mat-card-content>
       <p>
         <mat-icon>person</mat-icon>
-        {{ user.name }}
+        {{ user?.name }}
       </p>
       <p>
         <mat-icon>email</mat-icon>
-        {{ user.email }}
+        {{ user?.email }}
       </p>
       <p>
         <mat-icon>phone</mat-icon>
-        {{ user.phoneNumber }}
+        {{ user?.phoneNumber }}
       </p>
       <p>
         <mat-icon>location_on</mat-icon>
-        {{ user.address }}
+        {{ user?.address }}
       </p>
 
     </mat-card-content>
   </mat-card>
 </div>
+<ng-template #contentEdit let-modal>
+  <div class="modal-header justify-content-center">
+    <h4 class="modal-title" id="modal-basic-title">Update Agent Data</h4>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="profileForm" novalidate>
+      <file-upload (fileSelected)="handleFile($event)" requiredFileType="image/png"
+                   formControlName="photo"></file-upload>
+
+      <!-- Name Field -->
+      <mat-form-field class="form-group">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" id="name" class="form-control" placeholder="Enter agent's name"/>
+      </mat-form-field>
+
+      <!-- Email Field -->
+      <mat-form-field class="form-group">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" id="email" type="email" class="form-control"
+               placeholder="Enter agent's email"/>
+      </mat-form-field>
+
+      <!-- Phone Number Field -->
+      <mat-form-field class="form-group">
+        <mat-label>Phone Number</mat-label>
+        <input matInput formControlName="phoneNumber" id="phoneNumber" class="form-control"
+               placeholder="Enter agent's phone number"/>
+      </mat-form-field>
+      <mat-form-field class="form-group">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address" class="form-control"
+               placeholder="Enter agent's address"/>
+      </mat-form-field>
+      <!-- Action Buttons -->
+      <div class="modal-footer">
+        <button mat-button class="btn-secondary" (click)="modal.dismiss('Cancel click')">
+          Cancel
+        </button>
+        <button mat-button class="btn-primary" (click)="onSave()">
+          Save Changes
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>

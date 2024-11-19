@@ -2,16 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AgentRoutingModule } from './agent-routing.module';
-import { AgentComponent } from './agent.component';
-import { DashboardComponent } from './component/dashboard/dashboard.component';
-import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TransactionResultsComponent } from './transaction-results/transaction-results.component';
 
 
 @NgModule({
   declarations: [
-    AgentComponent,
     DashboardComponent,
     TransactionResultsComponent,
 
@@ -21,7 +18,6 @@ import { TransactionResultsComponent } from './transaction-results/transaction-r
     AgentRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
 
   ]
 })

@@ -1,51 +1,61 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { DemoAngularMaterialModule} from './DemoAngularMaterialModule';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { HomeComponent } from './home/home.component';
-import { ChatDialogComponent } from './chat-boot/chat-dialog/chat-dialog.component';
-import { ForgetPasswordComponent } from './forget-password/forget-password.component';
-import { ProfileComponent } from './profile/profile.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
+import {DemoAngularMaterialModule} from './shared/services/DemoAngularMaterialModule';
+import {LoginComponent} from './login/login.component';
+import {SignupComponent} from './signup/signup.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {HomeComponent} from './home/home.component';
+import {ForgetPasswordComponent} from './forget-password/forget-password.component';
+import {ProfileComponent} from './profile/profile.component';
+import {ResetPasswordComponent} from './reset-password/reset-password.component';
+import {NavbarComponent} from './components/navbar/navbar.component';
+import {JWT_OPTIONS, JwtHelperService} from '@auth0/angular-jwt';
+import {AuthInterceptor} from './shared/interceptors/AuthInterceptor';
+import {FileUploadComponent} from './profile/file-upload/file-upload.component';
+import {NgOptimizedImage} from '@angular/common';
 
 
+@NgModule({
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    SignupComponent,
+    HomeComponent,
+    ForgetPasswordComponent,
+    ProfileComponent,
+    ResetPasswordComponent,
+    NavbarComponent,
+    FileUploadComponent,
 
 
-@NgModule({ declarations: [
-        AppComponent,
-        LoginComponent,
-        SignupComponent,
-        HomeComponent,
-        ForgetPasswordComponent,
-        ProfileComponent,
-        ResetPasswordComponent,
-        NavbarComponent,
-        
-        
-        
-        
-    ],
-    bootstrap: [AppComponent], 
-    
-    imports: [BrowserModule,
-        AppRoutingModule,
-        DemoAngularMaterialModule,
-        FormsModule,
-        ReactiveFormsModule,
-       
-        
-        
-    ], 
-    providers: [
-        provideAnimationsAsync(),
-        provideHttpClient(withInterceptorsFromDi())
-    ] })
-export class AppModule { }
+  ],
+  bootstrap: [AppComponent],
+
+  imports: [BrowserModule,
+    AppRoutingModule,
+    DemoAngularMaterialModule,
+    FormsModule,
+    ReactiveFormsModule, NgOptimizedImage,
+
+
+  ],
+  providers: [
+    provideAnimationsAsync(),
+    provideHttpClient(withInterceptorsFromDi()),
+    {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
+
+    JwtHelperService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ]
+})
+export class AppModule {
+}

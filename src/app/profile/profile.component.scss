@@ -1,8 +1,11 @@
 .profile-card {
   width: 100%;
+  height: 50%;
   max-width: 400px;
   margin: 20px auto;
   text-align: center;
+  background-color: var(--text-color);
+  color: var(--background-td) !important;
 }
 
 .profile-avatar {
@@ -12,6 +15,7 @@
   overflow: hidden;
   margin: 0 auto;
 }
+
 .profile-avatar img {
   width: 100%;
 }
@@ -37,7 +41,7 @@ mat-card-content p {
       top: 0;
       right: 0;
       margin: 8px;
-      color: white; /* Couleur de l'icône, personnalisable */
+      color: var(--background-td); /* Couleur de l'icône, personnalisable */
       background-color: rgba(0, 0, 0, 0.05); /* Contexte transparent */
       border-radius: 50%;
       transition: background-color 0.2s;
@@ -48,4 +52,144 @@ mat-card-content p {
     }
   }
 }
+
+
+.container {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: flex-start !important;
+  margin-top: 2%;
+}
+
+/* Style général pour le bouton */
+
+/* Taille moyenne du bouton */
+
+.ooredoo-button i {
+  margin-right: 8px; /* Espace entre l'icône et le texte */
+}
+
+/* Bouton avec bordure et texte colorés (utilisé dans la table) */
+
+/* Effet au survol pour le bouton outline */
+
+.btn i {
+  margin-right: 5px; /* Ajustement de l'espace autour de l'icône */
+}
+
+/* Spécifique à add-agent-btn (ajout d'un nouvel agent) */
+
+/* Survol du bouton spécifique */
+
+/* Réduire les marges et l'espacement sur petit écran */
+@media (max-width: 768px) {
+}
+
+/* Style global pour la table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Bordures autour de chaque cellule */
+.table-bordered th, .table-bordered td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/* Style des en-têtes de la table */
+.table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
+}
+
+/* Lignes alternées avec couleur */
+.table-striped tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+/* Stylisation au survol des lignes */
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+  transition: background-color 0.3s;
+}
+
+/* Style des cellules de données */
+.table td {
+  text-align: left;
+  padding: 10px;
+}
+
+/* Aligner les éléments dans les cellules */
+.table td span {
+  display: block;
+}
+
+/* Réduction de la taille de la table et des cellules sur mobile */
+@media (max-width: 768px) {
+  .table {
+    font-size: 14px;
+  }
+
+  .table th, .table td {
+    padding: 6px;
+  }
+}
+
+/* Spécifique pour les boutons dans la table */
+
+/* Custom styling for the modal */
+
+/* Add some padding for the body */
+.modal-body {
+  padding: 20px;
+}
+
+/* Button styles */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+
+.modal-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.modal-header {
+  background-color: var(--background-th);
+  color: var(--background-color);
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-footer {
+  justify-content: space-between;
+}
+
+.form-control {
+  border-radius: 0.25rem;
+  box-shadow: none;
+}
+
+
+
+
+
 
