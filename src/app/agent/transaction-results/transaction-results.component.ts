@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { TransactionService } from '../../shared/services/transaction.service';
 import { HttpClient } from '@angular/common/http';
 import {Transaction} from '../../shared/model/transaction.types';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-transaction-results',
@@ -16,6 +17,7 @@ export class TransactionResultsComponent {
   isPayNowEnabled: boolean = false;
 
   constructor(private transactionService: TransactionService, private router: Router,
+    private snackBar: MatSnackBar,
     private http: HttpClient ) {}
      handler:any = null ;
 
@@ -23,6 +25,8 @@ export class TransactionResultsComponent {
     // Vous devez probablement passer les transactions via le service ou le routeur
     this.transactions = this.transactionService.getStoredTransactions();
     this.loadStripe();
+    this.snackBar.open(`The payment for transaction type  with order number  and amount  TND has been processed successfully!`, 'Close', {duration: 5000, panelClass: 'success-snackbar'});
+
   }
 
   checkTransactionStatus(transactionId: number) {
@@ -51,7 +55,8 @@ export class TransactionResultsComponent {
         // You can access the token ID with `token.id`.
         // Get the token ID to your server-side code for use.
         console.log(token)
-        alert(`The payment for transaction type ${type} with order number ${orderNumber} and amount ${amount} TND has been processed successfully!`);
+        this.snackBar.open(`The payment for transaction type ${type} with order number ${orderNumber} and amount ${amount} TND has been processed successfully!`, 'Close', {duration: 5000, panelClass: 'success-snackbar'});
+
       },
       closed: () => {
         console.log('Payment window closed');}
