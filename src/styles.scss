@@ -38,15 +38,15 @@ html, body {
 
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: center !important;
   align-items: flex-start;
   min-height: 80vh;
   height: 90vh;
 }
 
 .primary-button {
-  background: var(--accent-color);
-  color: var(--text-color);
+  background: var(--primary-color) !important;
+  color: white !important;
   font-weight: bold;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -70,7 +70,7 @@ html, body {
 
 .agent-table th {
   background-color: var(--background-th) !important;
-  color: var(--primary-color) !important;
+  color: var(--background-td) !important;
   text-align: center;
   padding: 12px;
   font-weight: 600;
@@ -94,7 +94,20 @@ html, body {
   padding: 0 16px;
   color: var(--text-color);
 }
-
+.ooredoo-button {
+  background-color: #ed1c24;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  border: 2px solid transparent;
+  color: #fff;
+  margin: 20px 0 auto;
+}
 
 
 .navbar-brand {
@@ -138,14 +151,12 @@ button:hover {
 @media screen and (max-width: 768px) {
   .container {
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
     height: auto;
   }
 }
 
-
-
 form {
   display: grid;
 }
+

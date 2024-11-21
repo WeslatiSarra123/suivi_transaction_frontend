@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Transaction} from '../../shared/model/transaction.types';
 import {TransactionType} from '../../shared/enumeration/TransactionType.enum';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -17,7 +18,10 @@ export class DashboardComponent implements OnInit {
   transactions: Transaction[] = [];
   errorMessage: string = '';
 
-  constructor(private fb: FormBuilder, private transactionService: TransactionService, private router: Router) {
+  constructor(private fb: FormBuilder,
+              private transactionService: TransactionService,
+              private snackBar: MatSnackBar,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -36,8 +40,14 @@ export class DashboardComponent implements OnInit {
           this.transactionService.storeTransactions(data);  // Stocke les transactions dans le service
           this.router.navigate(['agent/results']);  // Redirection vers la page des résultats
         },
-        error: () =>
-          this.errorMessage = "No transactions found for the given information. Please check your details."
+        error: () => {
+          this.errorMessage = "No transactions found for the given information. Please check your details.";
+          this.snackBar.open(this.errorMessage, 'Close', {
+            duration: 5000,
+            panelClass: 'error-snackbar'
+          })
+        }
+
       }
     );
   }

@@ -18,10 +18,10 @@ mat-card {
 }
 
 mat-card-title {
+  color: #10161c;
   text-align: center;
   font-size: 24px;
   margin-bottom: 20px;
-  color: var(--primary);
   font-weight: bold;
 }
 
@@ -89,8 +89,8 @@ mat-form-field {
   }
 }
 
-.ooredoo-button {
-  color: var(--red-asset) !important;
+.ooredoo-button, .ooredoo-button a {
+  color: var(--background-th) !important;
 }
 
 .button-container {

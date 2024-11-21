@@ -1,63 +1,10 @@
-.container {
-  display: flex !important;
-  flex-direction: column;
-  justify-content: flex-start !important;
-  margin-top: 2%;
-}
-
-
-.ooredoo-button {
-  background-color: #ed1c24;
-  font-size: 16px;
-  font-weight: 500;
-  padding: 10px 20px;
-  border-radius: 5px;
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  border: 2px solid transparent;
-  color: #fff;
-  margin: 20px 0 auto;
-}
-
-
-.ooredoo-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: 500;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-
 .ooredoo-button i {
   margin-right: 8px;
 }
 
-
 .btn i {
   margin-right: 5px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-  font-size: 16px;
-  color: #333;
-}
-
 
 .table-bordered th, .table-bordered td {
   border: 1px solid #ddd;
@@ -184,24 +131,12 @@ table .btn {
   margin-top: 2%;
 }
 
-.ooredoo-button i {
-  margin-right: 8px;
-}
+
 
 
 .btn i {
   margin-right: 5px;
 }
-
-
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-  font-size: 16px;
-  color: #333;
-}
-
 
 .table-bordered th, .table-bordered td {
   border: 1px solid #ddd;

@@ -3,6 +3,7 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {UserService} from '../shared/services/user.service';
 import {Router} from '@angular/router';
+import {AuthService} from '../shared/services/auth.service';
 
 @Component({
   selector: 'forget-password',
@@ -18,7 +19,7 @@ export class ForgetPasswordComponent {
 
   constructor(private fb: FormBuilder,
               private snackeBar: MatSnackBar,
-              private userService: UserService,
+              private authService: AuthService,
               private router: Router) {
 
     this.forgotPasswordForm = this.fb.group({
@@ -32,7 +33,7 @@ export class ForgetPasswordComponent {
 
   onSubmit() {
     const email: string = this.forgotPasswordForm.get('email')?.value;
-    this.userService.forgotPassword(email).subscribe({
+    this.authService.forgotPassword(email).subscribe({
       next: () => {
         this.tokenSent = true;
         return this.snackeBar.open("Token generated successfully.", '', {duration: 5000});
@@ -47,7 +48,7 @@ export class ForgetPasswordComponent {
   }
 
   resetPassword() {
-    this.userService.resetPassword(this.resetPasswordForm.get('token')?.value, this.resetPasswordForm.get('password')?.value).subscribe({
+    this.authService.resetPassword(this.resetPasswordForm.get('token')?.value, this.resetPasswordForm.get('password')?.value).subscribe({
       next: () => {
         this.tokenSent = true;
         this.snackeBar.open("Password successfully reset.", '', {duration: 5000});

@@ -14,16 +14,7 @@ export class UserService {
               private userStorageService: UserStorageService) {
   }
 
-  forgotPassword(email: string) {
-    return this.http.post(`${environment.apiUrl}${environment.users}forgot-password`, email);
-  }
 
-  resetPassword(token: string, password: string) {
-    const body = {
-      token, password
-    }
-    return this.http.post(`${environment.apiUrl}${environment.users}reset-password`, body);
-  }
 
   getProfile(userId: any): Observable<User> {
     return this.http.get<User>(`${environment.apiUrl}${environment.users}${userId}`);

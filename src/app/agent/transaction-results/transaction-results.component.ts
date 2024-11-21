@@ -44,7 +44,6 @@ export class TransactionResultsComponent {
     });
   }
   payNow(amount: number, type: string, orderNumber: string) {
-    alert(`Initiating payment process for amount: ${amount} TND`);
     const handler = (<any>window).StripeCheckout.configure({
       key:'pk_test_51QD7EKEQciJg6fdejdysNrjR0vydXih3oj29K7CLbADOSYjRJsLPg4pVRHpDoDbO95Q3utkwh50nf4cX0IrvkR6800UosQjvfZ',
       locale: 'auto',

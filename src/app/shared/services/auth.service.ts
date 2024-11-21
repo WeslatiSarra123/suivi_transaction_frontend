@@ -26,10 +26,9 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<boolean> {
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
     const body = { username, password };
 
-    return this.http.post(`${environment.apiUrl}${environment.auth}login`, body, { headers }).pipe(
+    return this.http.post(`${environment.apiUrl}${environment.auth}login`, body).pipe(
       switchMap((res: any) => {
         const accessToken = res.token;
         if (accessToken) {
@@ -51,4 +50,14 @@ export class AuthService {
     );
   }
 
+  forgotPassword(email: string) {
+    return this.http.post(`${environment.apiUrl}${environment.auth}forgot-password`, email);
+  }
+
+  resetPassword(token: string, password: string) {
+    const body = {
+      token, password
+    }
+    return this.http.post(`${environment.apiUrl}${environment.auth}reset-password`, body);
+  }
 }
