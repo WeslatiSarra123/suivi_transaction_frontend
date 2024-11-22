@@ -1,6 +1,6 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {Observable, switchMap, of, catchError} from 'rxjs';
+import {Observable, switchMap, of, catchError, throwError} from 'rxjs';
 import {UserStorageService} from './user-storage.service';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {UserService} from './user.service';
@@ -45,7 +45,7 @@ export class AuthService {
       }),
       catchError(error => {
         console.error('Login error:', error);
-        return of(false); // En cas d'erreur, retourner false
+        return throwError(() => new Error('Invalid credentials')); // Propagation de l'erreur
       })
     );
   }

@@ -43,7 +43,7 @@ export class NavbarComponent implements OnInit {
       role: 'user',
       items: [
         {label: 'Dashboard', link: '/user/dashboard'},
-        {label: 'Comments', link: '/user/comments'},
+        {label: 'Comments', link: '/user/add-comment'},
       ]
     },
     {
@@ -51,6 +51,8 @@ export class NavbarComponent implements OnInit {
       items: [
         {label: 'Dashboard', link: '/admin/dashboard'},
         {label: 'ChatBoot', link: '/chatBoot/chat'},
+        {label: 'Comments', link: '/admin/comments'},
+
       ]
     },
     {

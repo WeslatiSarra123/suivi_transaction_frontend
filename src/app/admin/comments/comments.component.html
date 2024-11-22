@@ -1,0 +1,60 @@
+<div class="comments-container">
+  <ng-container *ngIf="comments?.length > 0; else noComments">
+    <mat-card *ngFor="let comment of comments;let i=index" class="comment-card">
+      <mat-card-header>
+        <div mat-card-avatar class="avatar">
+          <img [src]="environment.apiImg+comment?.user?.photo" width="20" height="20" alt="">
+        </div>
+        <mat-card-title>{{ comment.subject }}</mat-card-title>
+        <mat-card-subtitle>
+          Posted by {{ comment.user?.name || 'Anonymous' }} on
+          {{ comment.createdAt | date: 'medium' }}
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ comment.content }}</p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-icon-button color="primary" (click)="editComment(contentEdit, comment, i)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteComment(comment.id,i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+
+  <ng-template #noComments>
+    <div class="empty-state">
+      <mat-icon>sentiment_dissatisfied</mat-icon>
+      <p>No comments to display.</p>
+    </div>
+  </ng-template>
+</div>
+<ng-template #contentEdit let-modal>
+  <div class="modal-header justify-content-center">
+    <h4 class="modal-title" id="modal-basic-title">Update Comment Data</h4>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="commentForm" novalidate>
+      <!-- Name Field -->
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input formControlName="subject" id="subject" class="form-control" placeholder="Enter comment's subject"/>
+      </div>
+
+      <!-- Phone Number Field -->
+      <div class="form-group">
+        <label for="content">Content</label>
+        <input formControlName="content" id="content" class="form-control"
+               placeholder="Enter comment's content"/>
+      </div>
+      <!-- Action Buttons -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cancel click')">Cancel</button>
+        <button type="submit" class="btn btn-primary" (click)="onSave()">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</ng-template>

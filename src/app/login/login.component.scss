@@ -1,6 +1,6 @@
 .container{
   margin-top: 2%;
-  height: 100vh;
+  height: 80vh;
 }
 
 mat-card {
@@ -51,7 +51,7 @@ mat-form-field {
   margin-bottom: 20px;
 
   img {
-    max-width: 150px;
+    max-width: 5rem;
   }
 }
 
@@ -91,6 +91,10 @@ mat-form-field {
 
 .ooredoo-button, .ooredoo-button a {
   color: var(--background-th) !important;
+  justify-content: space-around;
+  background-color: var(--background-td);
+  margin: 0;
+  height: 2.5rem;
 }
 
 .button-container {
@@ -101,4 +105,6 @@ mat-form-field {
 
 
 
-
+.forgot_button{
+  color: var(--primary-color) !important;
+}

@@ -40,7 +40,8 @@ import {NgOptimizedImage} from '@angular/common';
     AppRoutingModule,
     DemoAngularMaterialModule,
     FormsModule,
-    ReactiveFormsModule, NgOptimizedImage,
+    ReactiveFormsModule,
+    NgOptimizedImage,
 
 
   ],

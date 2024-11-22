@@ -1,0 +1,37 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title>Send your feedback</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="commentForm">
+        <mat-form-field appearance="outline">
+          <mat-label>Subject</mat-label>
+          <input matInput formControlName="subject" placeholder="Name" required>
+          <mat-error *ngIf="commentForm.get('subject').invalid && commentForm.get('subject').touched">
+            Please enter a valid name.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" placeholder="Email" required>
+          <mat-error *ngIf="commentForm.get('email').invalid && commentForm.get('email').touched">
+            Please enter a valid email.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Content</mat-label>
+          <textarea matInput formControlName="content" placeholder="Add Content" required>
+          </textarea>
+          <mat-error *ngIf="commentForm.get('content').invalid && commentForm.get('content').touched">
+            Please enter a valid phone number.
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button class="primary-button" type="submit" [disabled]="commentForm.invalid" (click)="onSubmit()">
+          Confirm
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

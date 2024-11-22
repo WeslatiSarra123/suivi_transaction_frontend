@@ -22,9 +22,8 @@ export class AuthInterceptor implements HttpInterceptor {
     // Clone the request object
     let newReq = req.clone();
     const token = UserStorageService.getToken();
-    console.log(token)
     req.headers.set('Content-Type', 'application/json')
-    if (token && !req.url.includes('api/v1/auth/login')) {
+    if (token && !req.url.includes('api/v1/auth')) {
       newReq = req.clone({
         headers: req.headers.set('Authorization', `Bearer ${token}`)
       });
@@ -33,7 +32,6 @@ export class AuthInterceptor implements HttpInterceptor {
     // Response
     return next.handle(newReq).pipe(
       catchError((error: any) => {
-        console.log(error);
 
         return throwError(error);
       })

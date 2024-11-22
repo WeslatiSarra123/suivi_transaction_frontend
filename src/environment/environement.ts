@@ -8,6 +8,7 @@ export const environment = {
   apiImg: 'http://localhost:8080/',
   auth: 'auth/',
   users: 'users/',
+  comments: 'comments/',
   transactions: 'transactions/',
   token: 'token'
 

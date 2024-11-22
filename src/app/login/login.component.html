@@ -26,13 +26,13 @@
         </mat-form-field>
         <div class="button-container">
 
-          <button mat-raised-button class="primary-button" type="submit" [disabled]="loginForm.invalid"
+          <button mat-raised-button class="primary-button m-0" type="submit" [disabled]="loginForm.invalid"
                   (click)="onSubmit()">Login
           </button>
           <span class="ooredoo-button"> Don't have an account? <a
                                                       routerLink="/signup">Sign Up</a>
           </span>
-          <button mat-raised-button routerLink="/forgetPassword">ForgetPassword</button>
+          <button mat-raised-button class="m-0 forgot_button" routerLink="/forgetPassword">ForgetPassword</button>
 
         </div>
 
