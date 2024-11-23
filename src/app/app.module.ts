@@ -18,6 +18,7 @@ import {JWT_OPTIONS, JwtHelperService} from '@auth0/angular-jwt';
 import {AuthInterceptor} from './shared/interceptors/AuthInterceptor';
 import {FileUploadComponent} from './profile/file-upload/file-upload.component';
 import {NgOptimizedImage} from '@angular/common';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import {NgOptimizedImage} from '@angular/common';
     ResetPasswordComponent,
     NavbarComponent,
     FileUploadComponent,
+    FeedbackComponent,
 
 
   ],

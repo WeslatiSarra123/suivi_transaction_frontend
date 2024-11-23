@@ -36,6 +36,7 @@ export class NavbarComponent implements OnInit {
       role: 'guest',
       items: [
         {label: 'ChatBoot', link: '/chatBoot/chat'},
+        {label: 'Feedback', link: '/feedback'},
         {label: 'Login', link: '/login'},
       ]
     },

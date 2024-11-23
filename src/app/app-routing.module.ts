@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'forgetPassword', component: ForgetPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'feedback', component: FeedbackComponent },
   { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: 'agent', loadChildren: () => import('./agent/agent.module').then(m => m.AgentModule) },
