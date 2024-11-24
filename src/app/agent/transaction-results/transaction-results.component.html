@@ -1,4 +1,4 @@
-<div class="container-transaction mt-5">
+<div class="container-transaction">
   <h2 class="text-center mb-4">Transaction Results</h2>
 
   <table class="table table-bordered table-hover table-responsive agent-table"
@@ -16,14 +16,14 @@
     <tbody>
     <tr *ngFor="let transaction of transactions;let index=index"
         [ngClass]="{'table-row-hover': true, 'even': index % 2 === 0}">
-      <td>{{ transaction.orderNumber }}</td>
-      <td>{{ transaction.type }}</td>
-      <td>{{ transaction.amount }}</td>
-      <td>{{ transaction.currency }}</td>
-      <td>{{ transaction.status }}</td>
+      <td>{{ transaction?.orderNumber }}</td>
+      <td>{{ transaction?.type }}</td>
+      <td>{{ transaction?.amount }}</td>
+      <td>{{ transaction?.currency }}</td>
+      <td>{{ transaction?.status }}</td>
       <td>
-        <button class="btn btn-success" (click)="payNow(transaction.amount, transaction.type, transaction.orderNumber)"
-                [disabled]="transaction.status==='approved'">
+        <button class="btn btn-success" (click)="payNow(transaction,index)"
+                [disabled]="transaction?.status==='approved'">
           Pay Now
         </button>
 
