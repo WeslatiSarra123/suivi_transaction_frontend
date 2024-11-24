@@ -1,101 +1,105 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { TransactionService } from '../../shared/services/transaction.service';
 import { HttpClient } from '@angular/common/http';
-import {Transaction} from '../../shared/model/transaction.types';
+import { Transaction } from '../../shared/model/transaction.types';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-transaction-results',
   templateUrl: './transaction-results.component.html',
-  styleUrl: './transaction-results.component.scss'
+  styleUrl: './transaction-results.component.scss',
 })
 export class TransactionResultsComponent {
-  transactions: Transaction[] = [];
-  transaction : Transaction;
+  @Input() transactions: Transaction[] = [];
+  transaction: Transaction;
   errorMessage: string = '';
   isPayNowEnabled: boolean = false;
+  handler: any = null;
 
-  constructor(private transactionService: TransactionService, private router: Router,
-    private snackBar: MatSnackBar,
-    private http: HttpClient ) {}
-     handler:any = null ;
+  constructor(
+    private transactionService: TransactionService,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
-    // Vous devez probablement passer les transactions via le service ou le routeur
-    this.transactions = this.transactionService.getStoredTransactions();
     this.loadStripe();
-    this.snackBar.open(`The payment for transaction type  with order number  and amount  TND has been processed successfully!`, 'Close', {duration: 5000, panelClass: 'success-snackbar'});
-
+    this.snackBar.open(
+      `The payment for transaction type  with order number  and amount  TND has been processed successfully!`,
+      'Close',
+      { duration: 5000, panelClass: 'success-snackbar' }
+    );
   }
 
-  checkTransactionStatus(transactionId: number) {
-    this.http.get('http://localhost:8080/transactions/check-status/' + transactionId, { responseType: 'text' }).subscribe({
-      next: (message) => {
-        alert(message); // Affiche le message dans une alerte
-        if (message.includes("There is an issue")) {
-          this.isPayNowEnabled = true; // Active le bouton si le message indique qu'il y a un problème
-        } else if (message.includes("There are no issues with this transaction.")) {
-          this.isPayNowEnabled = false; // Désactive le bouton si le message indique qu'il n'y a pas de problème
-        }
-      },
-      error: (err) => {
-        console.error(err);
-        this.errorMessage = 'An error occurred while checking the transaction status.';
-        alert(this.errorMessage);
-        this.isPayNowEnabled = false; // Désactive le bouton en cas d'erreur
-      }
-    });
-  }
-  payNow(amount: number, type: string, orderNumber: string) {
+  payNow(transaction: Transaction, index: number) {
+    let transactionApproved;
+    // if (token) {
+    //   return this.transactionService
+    //      .checkRejected(transaction?.id)
+    //      .subscribe((res) => {
+    //        console.log(res);
+    //        if (res) {
+    //          transactionApproved = res;
+    //          this.transactions[index] = transactionApproved;
+    //        }
+    //      });
+    //  }
     const handler = (<any>window).StripeCheckout.configure({
-      key:'pk_test_51QD7EKEQciJg6fdejdysNrjR0vydXih3oj29K7CLbADOSYjRJsLPg4pVRHpDoDbO95Q3utkwh50nf4cX0IrvkR6800UosQjvfZ',
+      key: 'pk_test_51QD7EKEQciJg6fdejdysNrjR0vydXih3oj29K7CLbADOSYjRJsLPg4pVRHpDoDbO95Q3utkwh50nf4cX0IrvkR6800UosQjvfZ',
       locale: 'auto',
       token: function (token: any) {
         // You can access the token ID with `token.id`.
         // Get the token ID to your server-side code for use.
-        console.log(token)
-        this.snackBar.open(`The payment for transaction type ${type} with order number ${orderNumber} and amount ${amount} TND has been processed successfully!`, 'Close', {duration: 5000, panelClass: 'success-snackbar'});
-
+        this.loadStripe(transaction, index)
+        this.snackBar.open(
+          `The payment for transaction type ${transaction?.type} 
+          with order number ${transaction?.orderNumber} and amount ${transaction?.amount} TND has been processed successfully!`,
+          'Close',
+          { duration: 5000, panelClass: 'success-snackbar' }
+        );
       },
       closed: () => {
-        console.log('Payment window closed');}
+        console.log('Payment window closed');
+      },
     });
 
     handler.open({
       name: 'Payment',
-      description: `Payment for transaction type: ${type}`,
-      amount: amount * 100,
-
+      description: `Payment for transaction type: ${transaction?.type}`,
+      amount: transaction?.amount * 100,
     });
-
   }
-  loadStripe() {
+  loadStripe(transaction?,index?) {
     if (!window.document.getElementById('stripe-script')) {
-        const s = window.document.createElement("script");
-        s.id = "stripe-script";
-        s.type = "text/javascript";
-        s.src = "https://checkout.stripe.com/checkout.js";
-        s.onload = () => {
-            console.log('Stripe script loaded successfully'); // Vérification du chargement
-            this.handler = (<any>window).StripeCheckout.configure({
-                key:'pk_test_51QD7EKEQciJg6fdejdysNrjR0vydXih3oj29K7CLbADOSYjRJsLPg4pVRHpDoDbO95Q3utkwh50nf4cX0IrvkR6800UosQjvfZ',
-                locale: 'auto',
-                token: (token: any) => {
-                    console.log(token); // Vérifiez que le token est créé
-                    alert('Payment Success!!');
-                }
-            });
-        };
-        window.document.body.appendChild(s);
+      const s = window.document.createElement('script');
+      s.id = 'stripe-script';
+      s.type = 'text/javascript';
+      s.src = 'https://checkout.stripe.com/checkout.js';
+      s.onload = () => {
+        console.log('Stripe script loaded successfully'); // Vérification du chargement
+        this.handler = (<any>window).StripeCheckout.configure({
+          key: 'pk_test_51QD7EKEQciJg6fdejdysNrjR0vydXih3oj29K7CLbADOSYjRJsLPg4pVRHpDoDbO95Q3utkwh50nf4cX0IrvkR6800UosQjvfZ',
+          locale: 'auto',
+          token: (token: any) => {
+            console.log(token); // Vérifiez que le token est créé
+            if (token) {
+               this.transactionService
+                .checkRejected(transaction?.id)
+                .subscribe((res) => {
+                  console.log(res);
+                  if (res) {
+                    this.transactions[index] = res;
+                  }
+                });
+            }
+            alert('Payment Success!!');
+          },
+        });
+      };
+      window.document.body.appendChild(s);
     } else {
-        console.log('Stripe script already loaded'); // Script déjà chargé
+      console.log('Stripe script already loaded'); // Script déjà chargé
     }
+  }
 }
-
-
-
-}
-
-
-

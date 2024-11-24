@@ -39,7 +39,7 @@
     </div>
   </div>
 
-  <!-- Display transaction results -->
+  <!-- Display transaction results
   <div *ngIf="transactions && transactions.length > 0" class="card shadow-sm">
     <div class="card-body">
       <h4 class="card-title text-center">Transaction Results</h4>
@@ -64,4 +64,8 @@
     </div>
   </div>
 
+</div> -->
+<div class="m-auto">
+
+  <app-transaction-results *ngIf="hasTransactions" [transactions]="transactions"></app-transaction-results>
 </div>

@@ -1,31 +1,46 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {Transaction} from '../model/transaction.types';
-import {environment} from '../../../environment/environement';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Transaction } from '../model/transaction.types';
+import { environment } from '../../../environment/environement';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TransactionService {
   private transactions: Transaction[] = [];
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   searchTransactions(criteria: any): Observable<Transaction[]> {
-    let params = new HttpParams().set('date', criteria.date).set('type', criteria.type).set('orderNumber', criteria.orderNumber);
+    let params = new HttpParams()
+      .set('date', criteria.date)
+      .set('type', criteria.type)
+      .set('orderNumber', criteria.orderNumber);
 
-    return this.http.get<Transaction[]>(`${environment.apiUrl}${environment.transactions}search`, {params});
+    return this.http.get<Transaction[]>(
+      `${environment.apiUrl}${environment.transactions}search`,
+      { params }
+    );
   }
 
-  storeTransactions(transactions: Transaction[]): void {
-    this.transactions = transactions;
-  }
+  // storeTransactions(transactions: Transaction[]): void {
+  //   console.log(transactions);
+    
+  //     this.transactions = transactions;
+  // }
+
+  // // Récupère les transactions stockées
+  // getStoredTransactions(): Transaction[] {
+  //   console.log(this.transactions);
+  //   if(this.transactions.length>0){
+  //     return this.transactions;
+  //   }
+  //   return null;
+  // }
 
   // Récupère les transactions stockées
-  getStoredTransactions(): Transaction[] {
-    return this.transactions;
+  checkRejected(id: number): Observable<Transaction> {
+  return  this.http.get<Transaction>(`${environment.apiUrl}${environment.transactions}check-rejected/${id}`);
   }
 }
-
