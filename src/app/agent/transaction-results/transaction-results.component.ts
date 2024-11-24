@@ -34,14 +34,12 @@ export class TransactionResultsComponent {
 
   payNow(transaction: Transaction, index: number) {
     let transactionApproved;
-
     const handler = (<any>window).StripeCheckout.configure({
       key: 'pk_test_51QD7EKEQciJg6fdejdysNrjR0vydXih3oj29K7CLbADOSYjRJsLPg4pVRHpDoDbO95Q3utkwh50nf4cX0IrvkR6800UosQjvfZ',
       locale: 'auto',
       token: function (token: any) {
         // You can access the token ID with `token.id`.
         // Get the token ID to your server-side code for use.
-        this.loadStripe(transaction, index);
         this.snackBar.open(
           `The payment for transaction type ${transaction?.type} 
           with order number ${transaction?.orderNumber} and amount ${transaction?.amount} TND has been processed successfully!`,
@@ -69,7 +67,7 @@ export class TransactionResultsComponent {
       amount: transaction?.amount * 100,
     });
   }
-  loadStripe(transaction?, index?) {
+  loadStripe() {
     if (!window.document.getElementById('stripe-script')) {
       const s = window.document.createElement('script');
       s.id = 'stripe-script';
@@ -82,16 +80,7 @@ export class TransactionResultsComponent {
           locale: 'auto',
           token: (token: any) => {
             console.log(token); // Vérifiez que le token est créé
-            if (token) {
-              this.transactionService
-                .checkRejected(transaction?.id)
-                .subscribe((res) => {
-                  console.log(res);
-                  if (res) {
-                    this.transactions[index] = res;
-                  }
-                });
-            }
+           
             alert('Payment Success!!');
           },
         });
