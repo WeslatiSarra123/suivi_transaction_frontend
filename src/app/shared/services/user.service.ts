@@ -15,7 +15,6 @@ export class UserService {
   }
 
 
-
   getProfile(userId: any): Observable<User> {
     return this.http.get<User>(`${environment.apiUrl}${environment.users}${userId}`);
   }
@@ -55,6 +54,10 @@ export class UserService {
         return of(false); // En cas d'erreur, retourner false
       })
     );
+  }
+
+  getAgents() {
+  return   this.http.get<User[]>('http://localhost:8080/agents');
   }
 
 }

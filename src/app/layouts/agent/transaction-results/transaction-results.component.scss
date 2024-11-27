@@ -1,0 +1,218 @@
+
+.container-transaction {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  max-width: 900px;
+
+}
+
+.ooredoo-button i {
+  margin-right: 8px;
+}
+
+
+.btn i {
+  margin-right: 5px;
+}
+
+.table-bordered th, .table-bordered td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+
+.table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
+}
+
+
+.table-striped tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+  transition: background-color 0.3s;
+}
+
+
+.table td {
+  text-align: left;
+  padding: 10px;
+}
+
+
+.table td span {
+  display: block;
+}
+
+
+@media (max-width: 768px) {
+  .table {
+    font-size: 14px;
+  }
+
+  .table th, .table td {
+    padding: 6px;
+  }
+}
+
+
+table .btn {
+  margin: 2px;
+}
+
+
+.modal-body {
+  padding: 20px;
+}
+
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+
+
+
+
+
+
+.modal-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.modal-header {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+
+.modal-footer {
+  justify-content: space-between;
+}
+
+.form-control {
+  border-radius: 0.25rem;
+  box-shadow: none;
+}
+
+
+
+
+
+
+
+
+.btn {
+  margin-right: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+
+.agent-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.btn i {
+  margin-right: 5px;
+}
+
+.table-bordered th, .table-bordered td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+
+.table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
+}
+
+
+.table-striped tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+  transition: background-color 0.3s;
+}
+
+
+.table td {
+  text-align: left;
+  padding: 10px;
+}
+
+
+.table td span {
+  display: block;
+}
+
+
+@media (max-width: 768px) {
+  .table {
+    font-size: 14px;
+  }
+
+  .table th, .table td {
+    padding: 6px;
+  }
+}
+
+
+table .btn {
+  margin: 2px;
+}
+
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+
+.modal-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.modal-header {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+
+
+
+
+
+.success-snackbar {
+  background-color: rgb(136, 255, 0) !important;
+}
+

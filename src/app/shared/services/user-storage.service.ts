@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {User} from '../model/user.types';
+import {ADMIN, AGENT, TOKEN, USER} from '../constants/app-constants';
 
-const TOKEN = 'token';
-const USER = 'user';
 
 @Injectable({
   providedIn: 'root'
@@ -51,7 +50,7 @@ export class UserStorageService {
       return false;
     }
     const role: string = this.getUserRole();
-    return role == 'ADMIN';
+    return role == ADMIN;
   }
 
   static isAgentLoggedIn(): boolean {
@@ -59,7 +58,7 @@ export class UserStorageService {
       return false;
     }
     const role: string = this.getUserRole();
-    return role == 'AGENT';
+    return role == AGENT;
   }
 
   static isUserLoggedIn(): boolean {
@@ -67,10 +66,10 @@ export class UserStorageService {
       return false;
     }
     const role: string = this.getUserRole();
-    return role == 'USER';
+    return role == USER;
   }
 
-  static signOut(): void {
+   signOut(): void {
     localStorage.removeItem(TOKEN);
     localStorage.removeItem(USER);
   }

@@ -1,0 +1,59 @@
+<div class="container-transaction">
+  <h2 class="text-center mb-4">Complaints List</h2>
+
+  <table class="table table-bordered table-hover table-responsive agent-table"
+         *ngIf="complaints && complaints.length > 0; else noResults">
+    <thead>
+    <tr>
+      <th>Type</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let complaint of complaints;let index=index"
+        [ngClass]="{'table-row-hover': true, 'even': index % 2 === 0}">
+      <td>{{ complaint?.type }}</td>
+      <td>{{ complaint?.status }}</td>
+      <td>
+        <button class="btn btn-success" (click)="showDetail(contentEdit, complaint,index)">
+          <i class="fa fa-eye"></i>
+
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noResults>
+    <p class="text-center ">No compl found. Please refine your search.</p>
+  </ng-template>
+  <div *ngIf="errorMessage">
+    <p class=" text-center mt-3">{{ errorMessage }}</p>
+  </div>
+</div>
+
+
+<ng-template #contentEdit let-modal>
+  <div class="modal-header justify-content-center">
+    <h4 class="modal-title" id="modal-basic-title">Update Comment Data</h4>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="complaintForm" novalidate>
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select          formControlName="status" id="status" class="form-control" placeholder="Enter comment's status">
+          <option value="APPROVED">APPROVED</option>
+          <option value="PENDING">PENDING</option>
+          <option value="REJECTED">REJECTED</option>
+        </select>
+      </div>
+      <app-transaction-results  [transactions]="transactions"></app-transaction-results>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cancel click')">Cancel</button>
+        <button type="submit" class="btn btn-primary" (click)="onSave()">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+

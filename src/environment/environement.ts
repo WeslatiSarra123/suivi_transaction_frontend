@@ -10,6 +10,7 @@ export const environment = {
   users: 'users/',
   comments: 'comments/',
   transactions: 'transactions/',
+  complaints: 'complaints/',
   token: 'token'
 
 };

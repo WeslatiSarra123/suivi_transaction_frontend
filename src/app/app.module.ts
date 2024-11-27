@@ -5,20 +5,20 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 import {DemoAngularMaterialModule} from './shared/services/DemoAngularMaterialModule';
-import {LoginComponent} from './login/login.component';
-import {SignupComponent} from './signup/signup.component';
+import {LoginComponent} from './layouts/login/login.component';
+import {SignupComponent} from './layouts/signup/signup.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
-import {HomeComponent} from './home/home.component';
+import {HomeComponent} from './layouts/home/home.component';
 import {ForgetPasswordComponent} from './forget-password/forget-password.component';
-import {ProfileComponent} from './profile/profile.component';
-import {ResetPasswordComponent} from './reset-password/reset-password.component';
+import {ProfileComponent} from './layouts/profile/profile.component';
+import {ResetPasswordComponent} from './layouts/reset-password/reset-password.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {JWT_OPTIONS, JwtHelperService} from '@auth0/angular-jwt';
 import {AuthInterceptor} from './shared/interceptors/AuthInterceptor';
-import {FileUploadComponent} from './profile/file-upload/file-upload.component';
+import {FileUploadComponent} from './layouts/profile/file-upload/file-upload.component';
 import {NgOptimizedImage} from '@angular/common';
-import { FeedbackComponent } from './feedback/feedback.component';
+import { FeedbackComponent } from './layouts/feedback/feedback.component';
 
 
 @NgModule({

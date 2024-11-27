@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {UserService} from '../shared/services/user.service';
 import {Router} from '@angular/router';
 import {AuthService} from '../shared/services/auth.service';
 

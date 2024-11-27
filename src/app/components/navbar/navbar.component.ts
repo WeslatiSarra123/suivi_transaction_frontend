@@ -3,6 +3,7 @@ import {UserStorageService} from '../../shared/services/user-storage.service';
 import {Router} from '@angular/router';
 import {ThemeService} from '../../shared/services/theme.service';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {ADMIN, AGENT, GUEST, USER} from '../../shared/constants/app-constants';
 
 @Component({
   selector: 'app-navbar',
@@ -17,6 +18,7 @@ export class NavbarComponent implements OnInit {
   lightTheme = ThemeService.isLightTheme();
 
   constructor(private router: Router, private themeService: ThemeService,
+              private userStorageService:UserStorageService,
               private breakpointObserver: BreakpointObserver) {
   }
 
@@ -33,7 +35,7 @@ export class NavbarComponent implements OnInit {
 
   public menus: { role: string, items: { label: string, link: string, action?: () => void }[] }[] = [
     {
-      role: 'guest',
+      role: GUEST,
       items: [
         {label: 'ChatBoot', link: '/chatBoot/chat'},
         {label: 'Feedback', link: '/feedback'},
@@ -41,23 +43,25 @@ export class NavbarComponent implements OnInit {
       ]
     },
     {
-      role: 'user',
+      role: USER,
       items: [
         {label: 'Dashboard', link: '/user/dashboard'},
         {label: 'Comments', link: '/user/add-comment'},
+        {label: 'Complaint', link: '/user/add-complaint'},
       ]
     },
     {
-      role: 'admin',
+      role: ADMIN,
       items: [
         {label: 'Dashboard', link: '/admin/dashboard'},
         {label: 'ChatBoot', link: '/chatBoot/chat'},
         {label: 'Comments', link: '/admin/comments'},
+        {label: 'Complaints', link: '/admin/show-complaints'},
 
       ]
     },
     {
-      role: 'agent',
+      role: AGENT,
       items: [
         {label: 'Dashboard', link: '/agent/dashboard'},
         {label: 'ChatBoot', link: '/chatBoot/chat'},
@@ -72,7 +76,7 @@ export class NavbarComponent implements OnInit {
 
   // Méthode pour se déconnecter
   logout() {
-    UserStorageService.signOut();
+    this.userStorageService.signOut();
     console.log('Logged out');
     this.isUserLoggedIn = false;
     this.isAdminLoggedIn = false;
@@ -83,10 +87,10 @@ export class NavbarComponent implements OnInit {
 
   // Méthode pour récupérer les boutons selon le rôle
   getUserMenu() {
-    if (this.isUserLoggedIn) return this.menus.find(menu => menu.role === 'user')?.items;
-    if (this.isAdminLoggedIn) return this.menus.find(menu => menu.role === 'admin')?.items;
-    if (this.isAgentLoggedIn) return this.menus.find(menu => menu.role === 'agent')?.items;
-    return this.menus.find(menu => menu.role === 'guest')?.items;
+    if (this.isUserLoggedIn) return this.menus.find(menu => menu.role === USER)?.items;
+    if (this.isAdminLoggedIn) return this.menus.find(menu => menu.role === ADMIN)?.items;
+    if (this.isAgentLoggedIn) return this.menus.find(menu => menu.role === AGENT)?.items;
+    return this.menus.find(menu => menu.role === GUEST)?.items;
   }
 
   protected readonly ThemeService = ThemeService;

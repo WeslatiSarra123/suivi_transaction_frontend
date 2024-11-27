@@ -3,13 +3,17 @@ import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/com
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {UserStorageService} from '../services/user-storage.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   /**
    * Constructor
    */
-  constructor() {
+  constructor(private userStorageService:UserStorageService,
+              private router:Router,
+              private snackBar:MatSnackBar) {
   }
 
   /**
@@ -32,7 +36,11 @@ export class AuthInterceptor implements HttpInterceptor {
     // Response
     return next.handle(newReq).pipe(
       catchError((error: any) => {
-
+        if (error.status === 403 && error.message.includes('JWT expired')) {
+          this.userStorageService.signOut();
+          this.snackBar.open(error?.error?.message, 'ERROR', {duration: 5000});
+          this.router.navigate(['/login']);
+        }
         return throwError(error);
       })
     );
