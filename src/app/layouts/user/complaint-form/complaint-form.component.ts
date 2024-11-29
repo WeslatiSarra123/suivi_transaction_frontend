@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ComplaintService} from '../../../shared/services/complaint.service';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {TransactionType} from '../../../shared/enumeration/TransactionType.enum';
 import {User} from '../../../shared/model/user.types';
 import {UserService} from '../../../shared/services/user.service';
@@ -30,6 +30,7 @@ export class ComplaintFormComponent implements OnInit {
       transactionDate: '',
       type: '',
       agentId: '',
+      phoneNumber: [null, [Validators.required, Validators.pattern('^[0-9]{8}$')]],
     })
     this.getAgents();
   }

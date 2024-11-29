@@ -5,7 +5,6 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Transaction} from '../../../shared/model/transaction.types';
 import {TransactionService} from '../../../shared/services/transaction.service';
-import {log} from '@angular-devkit/build-angular/src/builders/ssr-dev-server';
 
 @Component({
   selector: 'complaint-list',
@@ -29,13 +28,13 @@ export class ComplaintListComponent implements OnInit {
   ngOnInit(): void {
     this.complaintForm = this.fb.group({
       id: '',
-      status:  ''
+      status: ''
     })
     this.loadComplaints();
   }
 
   loadComplaints(): void {
-    this.complaintService.getAll().subscribe((data) => {
+    this.complaintService.findAll("PENDING,REJECTED").subscribe((data) => {
       this.complaints = data;
     });
   }
@@ -68,8 +67,7 @@ export class ComplaintListComponent implements OnInit {
   }
 
   onSave() {
-    this.complaintService.manageComplaint(this.complaintForm.value)
-    .subscribe(res => {
+    this.complaintService.manageComplaint(this.complaintForm.value).subscribe(res => {
       this.complaints[this.editingIndex] = res;
       this.modalService.dismissAll()
       console.log(res)

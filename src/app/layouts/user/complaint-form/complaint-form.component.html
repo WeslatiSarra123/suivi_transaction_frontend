@@ -2,21 +2,22 @@
   <mat-card>
     <mat-card-title>Add Complaint</mat-card-title>
     <mat-card-content>
-      <form  [formGroup]="complaintForm">
+      <form [formGroup]="complaintForm">
         <mat-form-field appearance="outline">
           <mat-label>Date de transaction</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="transactionDate" required />
+          <input matInput [matDatepicker]="picker" formControlName="transactionDate" required/>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
-          <mat-error *ngIf="complaintForm.get('transactionDate').invalid && complaintForm.get('transactionDate').touched">
+          <mat-error
+            *ngIf="complaintForm.get('transactionDate').invalid && complaintForm.get('transactionDate').touched">
             Please enter a valid name.
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Type</mat-label>
-          <mat-select id="type" formControlName="type"  required>
-            <mat-option  disabled selected>Select a type</mat-option>
+          <mat-select id="type" formControlName="type" required>
+            <mat-option disabled selected>Select a type</mat-option>
             <mat-option *ngFor="let type of transactionTypes" [value]="type">{{ type }}</mat-option>
           </mat-select>
           <mat-error *ngIf="complaintForm.get('type').invalid && complaintForm.get('type').touched">
@@ -25,15 +26,24 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Agents</mat-label>
-          <mat-select id="agent" formControlName="agentId"  required>
-            <mat-option  disabled selected>Select a agent</mat-option>
+          <mat-select id="agent" formControlName="agentId" required>
+            <mat-option disabled selected>Select a agent</mat-option>
             <mat-option *ngFor="let agent of agents" [value]="agent?.id">{{ agent?.name }}</mat-option>
           </mat-select>
           <mat-error *ngIf="complaintForm.get('agentId').invalid && complaintForm.get('agentId').touched">
             Please enter a valid email.
           </mat-error>
         </mat-form-field>
-        <button mat-raised-button class="primary-button" type="submit" [disabled]="complaintForm.invalid" (click)="onSubmit()">
+        <mat-form-field appearance="outline">
+          <mat-label>Phone number</mat-label>
+          <input matInput type="number" formControlName="phoneNumber"  required/>
+
+          <mat-error *ngIf="complaintForm.get('phoneNumber').invalid && complaintForm.get('phoneNumber').touched">
+            Please enter a valid phoneNumber.
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button class="primary-button" type="submit" [disabled]="complaintForm.invalid"
+                (click)="onSubmit()">
           Confirm
         </button>
       </form>

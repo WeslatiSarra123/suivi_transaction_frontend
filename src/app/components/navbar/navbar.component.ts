@@ -57,6 +57,7 @@ export class NavbarComponent implements OnInit {
         {label: 'ChatBoot', link: '/chatBoot/chat'},
         {label: 'Comments', link: '/admin/comments'},
         {label: 'Complaints', link: '/admin/show-complaints'},
+        {label: 'Archives', link: '/admin/archives'},
 
       ]
     },

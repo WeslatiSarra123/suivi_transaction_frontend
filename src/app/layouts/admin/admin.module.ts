@@ -10,8 +10,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {CommentsComponent} from './comments/comments.component';
 import {DemoAngularMaterialModule} from '../../shared/services/DemoAngularMaterialModule';
 import {MatCardAvatar} from '@angular/material/card';
-import {ComplaintListComponent} from './complaint-list/complaint-list.component';
 import {AgentModule} from '../agent/agent.module';
+import {ArchivesComponent} from './archives/archives.component';
+import {ComplaintListComponent} from './complaint-list/complaint-list.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import {AgentModule} from '../agent/agent.module';
     DashboardComponent,
     AddAgentComponent,
     CommentsComponent,
+    ArchivesComponent,
     ComplaintListComponent
   ],
     imports: [CommonModule,

@@ -4,6 +4,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {AddAgentComponent} from './add-agent/add-agent.component';
 import {CommentsComponent} from './comments/comments.component';
 import {ComplaintListComponent} from './complaint-list/complaint-list.component';
+import {ArchivesComponent} from './archives/archives.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: 'addAgent', component: AddAgentComponent},
   {path: 'comments', component: CommentsComponent},
   {path: 'show-complaints', component: ComplaintListComponent},
+  {path: 'archives', component: ArchivesComponent},
 
 
 ];

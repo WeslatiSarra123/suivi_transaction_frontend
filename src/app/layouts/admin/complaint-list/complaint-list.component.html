@@ -7,6 +7,8 @@
     <tr>
       <th>Type</th>
       <th>Status</th>
+      <th>Email</th>
+      <th>Phone number</th>
       <th>Actions</th>
     </tr>
     </thead>
@@ -15,6 +17,8 @@
         [ngClass]="{'table-row-hover': true, 'even': index % 2 === 0}">
       <td>{{ complaint?.type }}</td>
       <td>{{ complaint?.status }}</td>
+      <td>{{ complaint?.user?.email }}</td>
+      <td>{{ complaint?.user?.phoneNumber }}  {{ complaint?.phoneNumber ? '| '+ complaint?.phoneNumber:'' }}</td>
       <td>
         <button class="btn btn-success" (click)="showDetail(contentEdit, complaint,index)">
           <i class="fa fa-eye"></i>
@@ -42,13 +46,13 @@
     <form [formGroup]="complaintForm" novalidate>
       <div class="form-group">
         <label for="status">Status</label>
-        <select          formControlName="status" id="status" class="form-control" placeholder="Enter comment's status">
+        <select formControlName="status" id="status" class="form-control" placeholder="Enter comment's status">
           <option value="APPROVED">APPROVED</option>
           <option value="PENDING">PENDING</option>
           <option value="REJECTED">REJECTED</option>
         </select>
       </div>
-      <app-transaction-results  [transactions]="transactions"></app-transaction-results>
+      <app-transaction-results [transactions]="transactions"></app-transaction-results>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cancel click')">Cancel</button>
         <button type="submit" class="btn btn-primary" (click)="onSave()">Save Changes</button>

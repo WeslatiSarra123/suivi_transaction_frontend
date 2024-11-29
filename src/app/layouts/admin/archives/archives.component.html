@@ -1,0 +1,31 @@
+<div class="container-transaction">
+  <h2 class="text-center mb-4">Complaints List</h2>
+
+  <table class="table table-bordered table-hover table-responsive agent-table"
+         *ngIf="complaints && complaints.length > 0; else noResults">
+    <thead>
+    <tr>
+      <th>Type</th>
+      <th>Status</th>
+      <th>Email</th>
+      <th>Phone number</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let complaint of complaints;let index=index"
+        [ngClass]="{'table-row-hover': true, 'even': index % 2 === 0}">
+      <td>{{ complaint?.type }}</td>
+      <td>{{ complaint?.status }}</td>
+      <td>{{ complaint?.user?.email }}</td>
+      <td>{{ complaint?.user?.phoneNumber }}  {{ complaint?.phoneNumber ? '| '+ complaint?.phoneNumber:'' }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noResults>
+    <p class="text-center ">No compl found. Please refine your search.</p>
+  </ng-template>
+  <div *ngIf="errorMessage">
+    <p class=" text-center mt-3">{{ errorMessage }}</p>
+  </div>
+</div>

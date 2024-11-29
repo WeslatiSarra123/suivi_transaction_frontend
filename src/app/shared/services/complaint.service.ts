@@ -15,9 +15,15 @@ export class ComplaintService extends GenericService<Complaint, number> {
 
   }
 
+  findAll(status: string) {
+    const statusBody = status;
+    return this.http.get<Complaint[]>(`${environment.apiUrl}${environment.complaints}${statusBody}`);
+  }
+
   addComplaint(complaint: Complaint) {
     return this.http.post(`${environment.apiUrl}${environment.complaints}add-complaint`, complaint);
   }
+
   manageComplaint(complaint: Complaint) {
     return this.http.patch<Complaint>(`${environment.apiUrl}${environment.complaints}manage-complaint`, complaint);
   }
