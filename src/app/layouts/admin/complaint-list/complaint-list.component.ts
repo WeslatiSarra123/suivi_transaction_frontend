@@ -58,7 +58,7 @@ export class ComplaintListComponent implements OnInit {
     const body = {
       date: new Date(complaint.transactionDate).toISOString().split('T')[0],
       type: complaint.type,
-      orderNumber: ''
+      orderNumber: complaint?.user?.phoneNumber
     }
     this.transactionService.searchTransactions(body).subscribe(res => {
       console.log(res)
