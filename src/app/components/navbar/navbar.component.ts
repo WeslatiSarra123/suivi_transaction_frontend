@@ -56,8 +56,7 @@ export class NavbarComponent implements OnInit {
         {label: 'Dashboard', link: '/admin/dashboard'},
         {label: 'ChatBoot', link: '/chatBoot/chat'},
         {label: 'Comments', link: '/admin/comments'},
-        {label: 'Complaints', link: '/admin/show-complaints'},
-        {label: 'Archives', link: '/admin/archives'},
+        
 
       ]
     },
@@ -65,6 +64,8 @@ export class NavbarComponent implements OnInit {
       role: AGENT,
       items: [
         {label: 'Dashboard', link: '/agent/dashboard'},
+        {label: 'Complaints', link: '/admin/show-complaints'},
+        {label: 'Archives', link: '/admin/archives'},
         {label: 'ChatBoot', link: '/chatBoot/chat'},
       ]
     }

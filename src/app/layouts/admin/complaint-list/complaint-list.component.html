@@ -18,7 +18,7 @@
       <td>{{ complaint?.type }}</td>
       <td>{{ complaint?.status }}</td>
       <td>{{ complaint?.user?.email }}</td>
-      <td>{{ complaint?.user?.phoneNumber }}  {{ complaint?.phoneNumber ? '| '+ complaint?.phoneNumber:'' }}</td>
+      <td> {{ complaint?.phoneNumber ? complaint?.phoneNumber:'' }}</td>
       <td>
         <button class="btn btn-success" (click)="showDetail(contentEdit, complaint,index)">
           <i class="fa fa-eye"></i>
@@ -40,13 +40,13 @@
 
 <ng-template #contentEdit let-modal>
   <div class="modal-header justify-content-center">
-    <h4 class="modal-title" id="modal-basic-title">Update Comment Data</h4>
+    <h4 class="modal-title" id="modal-basic-title">Update Complaint Data</h4>
   </div>
   <div class="modal-body">
     <form [formGroup]="complaintForm" novalidate>
       <div class="form-group">
         <label for="status">Status</label>
-        <select formControlName="status" id="status" class="form-control" placeholder="Enter comment's status">
+        <select formControlName="status" id="status" class="form-control" placeholder="Enter complaint's status">
           <option value="APPROVED">APPROVED</option>
           <option value="PENDING">PENDING</option>
           <option value="REJECTED">REJECTED</option>

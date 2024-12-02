@@ -27,7 +27,7 @@ export class ArchivesComponent implements OnInit {
   }
 
   loadComplaints(): void {
-    this.complaintService.findAll("APPROVED").subscribe((data) => {
+    this.complaintService.findAll("APPROVED,REJECTED").subscribe((data) => {
       this.complaints = data;
     });
   }

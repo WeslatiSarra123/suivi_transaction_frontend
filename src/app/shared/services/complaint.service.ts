@@ -20,7 +20,9 @@ export class ComplaintService extends GenericService<Complaint, number> {
     return this.http.get<Complaint[]>(`${environment.apiUrl}${environment.complaints}${statusBody}`);
   }
 
-  addComplaint(complaint: Complaint) {
+  addComplaint(complaint: any) {
+    console.log(complaint);
+    
     return this.http.post(`${environment.apiUrl}${environment.complaints}add-complaint`, complaint);
   }
 

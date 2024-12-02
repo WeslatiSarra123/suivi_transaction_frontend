@@ -6,6 +6,7 @@ import {User} from '../../../shared/model/user.types';
 import {UserService} from '../../../shared/services/user.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Router} from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'complaint-list-form',
@@ -22,6 +23,7 @@ export class ComplaintFormComponent implements OnInit {
               private userService: UserService,
               private snackBar: MatSnackBar,
               private router: Router,
+            private datePipe: DatePipe,
               private fb: FormBuilder) {
   }
 
@@ -36,6 +38,13 @@ export class ComplaintFormComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.complaintForm.value.transactionDate);
+    if(this.complaintForm.value.transactionDate!=''){
+      this.complaintForm.value.transactionDate = this.datePipe.transform(this.complaintForm.value.transactionDate, 'yyyy-MM-dd');
+
+    }
+console.log(this.complaintForm.value.transactionDate);
+
     this.complaintService.addComplaint(this.complaintForm.value).subscribe(() => {
       this.router.navigateByUrl('/user/dashboard')
       return this.snackBar.open("Complaint send successfully.", '', {duration: 5000});

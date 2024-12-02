@@ -17,8 +17,9 @@ import {NavbarComponent} from './components/navbar/navbar.component';
 import {JWT_OPTIONS, JwtHelperService} from '@auth0/angular-jwt';
 import {AuthInterceptor} from './shared/interceptors/AuthInterceptor';
 import {FileUploadComponent} from './layouts/profile/file-upload/file-upload.component';
-import {NgOptimizedImage} from '@angular/common';
+import {DatePipe, NgOptimizedImage} from '@angular/common';
 import { FeedbackComponent } from './layouts/feedback/feedback.component';
+import { DateAdapter } from '@angular/material/core';
 
 
 @NgModule({
@@ -51,7 +52,7 @@ import { FeedbackComponent } from './layouts/feedback/feedback.component';
     provideAnimationsAsync(),
     provideHttpClient(withInterceptorsFromDi()),
     {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
-
+DatePipe,
     JwtHelperService,
     {
       provide: HTTP_INTERCEPTORS,

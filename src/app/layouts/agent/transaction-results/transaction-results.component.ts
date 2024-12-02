@@ -24,11 +24,7 @@ export class TransactionResultsComponent {
 
   ngOnInit(): void {
     this.loadStripe();
-    this.snackBar.open(
-      `The payment for transaction type  with order number  and amount  TND has been processed successfully!`,
-      'Close',
-      { duration: 5000, panelClass: 'success-snackbar' }
-    );
+   
   }
 
   payNow(transaction: Transaction, index: number) {

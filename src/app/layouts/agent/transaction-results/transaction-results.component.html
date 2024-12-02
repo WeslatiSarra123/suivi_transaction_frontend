@@ -23,7 +23,7 @@
       <td>{{ transaction?.status }}</td>
       <td>
         <button class="btn btn-success" (click)="payNow(transaction,index)"
-                [disabled]="transaction?.status==='approved'">
+                [disabled]="transaction?.status==='APPROVED'">
           Pay Now
         </button>
 

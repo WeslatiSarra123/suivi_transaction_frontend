@@ -34,7 +34,7 @@ export class ComplaintListComponent implements OnInit {
   }
 
   loadComplaints(): void {
-    this.complaintService.findAll("PENDING,REJECTED").subscribe((data) => {
+    this.complaintService.findAll("PENDING").subscribe((data) => {
       this.complaints = data;
     });
   }
@@ -55,10 +55,12 @@ export class ComplaintListComponent implements OnInit {
   }
 
   getTransaction(complaint: Complaint) {
+    console.log(complaint);
+    
     const body = {
       date: new Date(complaint.transactionDate).toISOString().split('T')[0],
       type: complaint.type,
-      orderNumber: complaint?.user?.phoneNumber
+      orderNumber: complaint?.phoneNumber
     }
     this.transactionService.searchTransactions(body).subscribe(res => {
       console.log(res)
